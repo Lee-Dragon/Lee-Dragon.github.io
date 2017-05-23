@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/05/22/%E5%85%8D%E8%B4%B9%E6%95%B0%E6%8D%AEAPI/</loc>
+    
+    <lastmod>2017-05-23T14:52:57.121Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/23/hexo-%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD/</loc>
     
     <lastmod>2017-05-23T06:13:31.869Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://yoursite.com/2017/05/12/%E7%BC%96%E5%86%99jQuery%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2017-05-22T08:56:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/22/%E5%85%8D%E8%B4%B9%E6%95%B0%E6%8D%AEAPI/</loc>
-    
-    <lastmod>2017-05-22T07:55:56.000Z</lastmod>
     
   </url>
   

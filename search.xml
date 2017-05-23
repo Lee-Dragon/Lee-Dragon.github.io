@@ -1,911 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[hexo 打赏功能]]></title>
-      <url>/2017/05/23/hexo-%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD/</url>
-      <content type="html"><![CDATA[<h1 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h1><h2 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h2><p>在 主题配置文件下添加一下代码<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">reward_comment:</span> <span class="string">坚持原创技术分享，您的支持将鼓励我继续创作！</span></div><div class="line"><span class="attr">wechatpay:</span> <span class="string">/wx.png</span></div><div class="line"><span class="attr">alipay:</span> <span class="string">/alipay.png</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>Tips:<br>‘/‘—-路径指向的是source文件夹(设置头像时一样)</p>
-</blockquote>
-<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><p>在source文件夹下加入wx.png和alipay.png图片</p>
-<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><h1 id="音乐播放器"><a href="#音乐播放器" class="headerlink" title="音乐播放器"></a>音乐播放器</h1><h2 id="选择音乐"><a href="#选择音乐" class="headerlink" title="选择音乐"></a>选择音乐</h2><p>在网易云音乐里选择自己喜欢的歌曲，生成外链</p>
-<h2 id="添加代码-1"><a href="#添加代码-1" class="headerlink" title="添加代码"></a>添加代码</h2><p>将生成的frame标签添加到next/layout/_macro下的sidebar.swig<br>第一个section结束标签前，大约117行的样子</p>
-<h2 id="上传-1"><a href="#上传-1" class="headerlink" title="上传"></a>上传</h2>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[更换终端后博客的更新]]></title>
-      <url>/2017/05/23/%E6%9B%B4%E6%8D%A2%E7%BB%88%E7%AB%AF%E5%90%8E%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0/</url>
-      <content type="html"><![CDATA[<p>本人，李小白<br><br>最近由于某些原因需要换地儿<br><br>唯一让我惦记的就是我辛辛苦苦建起来的博客<br><br>网上看了很多关于迁移的博客，好多种方法，什么hexo分支什么的<br><br>试了一下 ，无果<br><br>有句话说‘人如其名’，可能是这么高级的办法不太适合我<br><br>最终决定采用最原始的，最笨的办法来，步骤如下：<br></p>
-<h2 id="在新电脑先生成一下ssh"><a href="#在新电脑先生成一下ssh" class="headerlink" title="在新电脑先生成一下ssh"></a>在新电脑先生成一下ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>登陆GitHub，打开「Settings」-&gt;「SSH and GPG keys」，然后点击「new SSH key」，填上任意Title，在Key文本框里粘贴公钥id_rsa.pub文件的内容（千万不要粘贴成私钥了！），最后点击「Add SSH Key」，你就应该看到已经添加的Key</p>
-</blockquote>
-<h2 id="新建一个空的文件夹"><a href="#新建一个空的文件夹" class="headerlink" title="新建一个空的文件夹"></a>新建一个空的文件夹</h2><h2 id="cd到此文件夹，右键git-bash"><a href="#cd到此文件夹，右键git-bash" class="headerlink" title="cd到此文件夹，右键git bash"></a>cd到此文件夹，右键git bash</h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure>
-<h3 id="安装RSS插件"><a href="#安装RSS插件" class="headerlink" title="安装RSS插件"></a>安装RSS插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-feed --save</div></pre></td></tr></table></figure>
-<h3 id="安装Git插件"><a href="#安装Git插件" class="headerlink" title="安装Git插件"></a>安装Git插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<h3 id="建立站点地图—暂时还没用到"><a href="#建立站点地图—暂时还没用到" class="headerlink" title="建立站点地图—暂时还没用到"></a>建立站点地图—暂时还没用到</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
-<h2 id="完成后执行一下命令"><a href="#完成后执行一下命令" class="headerlink" title="完成后执行一下命令"></a>完成后执行一下命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<p>生成一些文件，用之前的source,theme,config.yml,scaffolds替换掉相应的文件</p>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g &amp; hexo s</div></pre></td></tr></table></figure>
-<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean &amp; hexo g &amp; hexo d</div></pre></td></tr></table></figure>
-<p>若出现像deployer not found的错误，直接重新执行一下安装的命令后hexo d</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 博客迁移 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[免费的数据 API]]></title>
-      <url>/2017/05/22/%E5%85%8D%E8%B4%B9%E6%95%B0%E6%8D%AEAPI/</url>
-      <content type="html"><![CDATA[<h2 id="Sina股票数据接口"><a href="#Sina股票数据接口" class="headerlink" title="Sina股票数据接口"></a>Sina股票数据接口</h2><blockquote>
-<p><a href="http://www.cnblogs.com/luluping/archive/2010/11/15/1877817.html" target="_blank" rel="external">http://www.cnblogs.com/luluping/archive/2010/11/15/1877817.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">http://hq.sinajs.cn/list=sh601006</div><div class="line">http://hq.sinajs.cn/list=s_sh000001//上证综合</div><div class="line">http://hq.sinajs.cn/list=s_sz399001//深圳成指</div><div class="line"></div><div class="line"></div><div class="line">//demo</div><div class="line">一个简单的JavaScript应用例子: </div><div class="line">script type=&quot;text/javascript&quot; src=&quot;http://hq.sinajs.cn/list=sh601006&quot; charset=&quot;gb2312&quot;&gt;/script&gt;</div><div class="line">/javascript&quot;&gt;</div><div class="line">var elements=hq_str_sh601006.split(&quot;,&quot;);</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>##　快递100<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://www.kuaidi100.com/openapi/</div></pre></td></tr></table></figure></p>
-<h2 id="手机归属地，使用方法如下："><a href="#手机归属地，使用方法如下：" class="headerlink" title="手机归属地，使用方法如下："></a>手机归属地，使用方法如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号码</div></pre></td></tr></table></figure>
-<h2 id="经纬度查询，使用方法如下："><a href="#经纬度查询，使用方法如下：" class="headerlink" title="经纬度查询，使用方法如下："></a>经纬度查询，使用方法如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">http://gc.ditu.aliyun.com/geocoding?a=合肥  </div><div class="line">//返回数据 经度：lon，纬度：lat  </div><div class="line">&#123;&quot;lon&quot;:117.22723,&quot;level&quot;:2,&quot;address&quot;:&quot;&quot;,&quot;cityName&quot;:&quot;&quot;,&quot;alevel&quot;:4,&quot;lat&quot;:31.82058&#125;</div></pre></td></tr></table></figure>
-<h2 id="天气查询，返回json，使用方法如下："><a href="#天气查询，返回json，使用方法如下：" class="headerlink" title="天气查询，返回json，使用方法如下："></a>天气查询，返回json，使用方法如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://api.map.baidu.com/telematics/v3/weather?location=城市名&amp;output=json&amp;ak=11ffd27d38deda622f51c9d314d46b17</div></pre></td></tr></table></figure>
-<h2 id="qq空间音乐查询，使用方法如下："><a href="#qq空间音乐查询，使用方法如下：" class="headerlink" title="qq空间音乐查询，使用方法如下："></a>qq空间音乐查询，使用方法如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//返回xml数据  </div><div class="line">http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=查询的qq号码  </div><div class="line">//返回json数据  </div><div class="line">http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=查询的qq号码&amp;json=1</div></pre></td></tr></table></figure>
-<h2 id="聚合的免费API接口数据"><a href="#聚合的免费API接口数据" class="headerlink" title="聚合的免费API接口数据"></a>聚合的免费API接口数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">手机号码归属地API接口：https://www.juhe.cn/docs/api/id/11</div><div class="line">历史上的今天API接口：https://www.juhe.cn/docs/api/id/63</div><div class="line">股票数据API接口：https://www.juhe.cn/docs/api/id/21</div><div class="line">全国WIFI接口：https://www.juhe.cn/docs/api/id/18</div><div class="line">星座运势接口：https://www.juhe.cn/docs/api/id/58</div><div class="line">黄金数据接口：https://www.juhe.cn/docs/api/id/29</div><div class="line">语音识别接口：https://www.juhe.cn/docs/api/id/134</div><div class="line">周公解梦接口：https://www.juhe.cn/docs/api/id/64</div><div class="line">天气预报API接口：https://www.juhe.cn/docs/api/id/73</div><div class="line">身份证查询API接口：https://www.juhe.cn/docs/api/id/38</div><div class="line">笑话大全API接口：https://www.juhe.cn/docs/api/id/95</div><div class="line">邮编查询接口：https://www.juhe.cn/docs/api/id/66</div><div class="line">老黄历接口：https://www.juhe.cn/docs/api/id/65</div><div class="line">网站安全检测接口：https://www.juhe.cn/docs/api/id/19</div><div class="line">手机固话来电显示接口：https://www.juhe.cn/docs/api/id/72</div><div class="line">基金财务数据接口：https://www.juhe.cn/docs/api/id/28</div><div class="line">成语词典接口：https://www.juhe.cn/docs/api/id/157</div><div class="line">新闻头条接口：https://www.juhe.cn/docs/api/id/235</div><div class="line">IP地址接口：https://www.juhe.cn/docs/api/id/1</div><div class="line">问答机器人接口：https://www.juhe.cn/docs/api/id/112</div><div class="line">汇率API接口：https://www.juhe.cn/docs/api/id/80</div><div class="line">电影票房接口：https://www.juhe.cn/docs/api/id/44</div><div class="line">万年历API接口：https://www.juhe.cn/docs/api/id/177</div><div class="line">NBA赛事接口：https://www.juhe.cn/docs/api/id/92</div></pre></td></tr></table></figure>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> API </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[document.ready]]></title>
-      <url>/2017/05/19/document.ready/</url>
-      <content type="html"><![CDATA[<p>##　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//第一种</div><div class="line">$(function()&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">//第二种----等同于上一种</div><div class="line">$(document).ready(function()&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">//第三种</div><div class="line">//jQuery默认参数为document</div><div class="line">$().ready(function()&#123;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> ready </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[正则表达式]]></title>
-      <url>/2017/05/16/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-      <content type="html"><![CDATA[<h2 id="元字符-w"><a href="#元字符-w" class="headerlink" title="元字符/w"></a>元字符/w</h2><p>\s:任何空白字符  [ \f\n\r\t\v]<br>\d:数字 [0-9]<br>\w:包括下划线的任何单词字符[A-Za-z0-9_]</p>
-<h2 id="反义-W"><a href="#反义-W" class="headerlink" title="反义/W"></a>反义/W</h2><p>\S:<br>\D:[^0-9]<br>\W:</p>
-<h2 id="限定符"><a href="#限定符" class="headerlink" title="限定符*"></a>限定符*</h2><h2 id="分组"><a href="#分组" class="headerlink" title="分组()"></a>分组()</h2><h2 id="后向引用"><a href="#后向引用" class="headerlink" title="后向引用"></a>后向引用</h2><h2 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h2><p>? :非贪婪   eg.  pppp<br>  reg:[p]+   res:pppp  一个<br>  reg:[p]+?  res:p p p p 四个</p>
-<p>. :匹配除“\n”之外的任何单个字符。要匹配包括”\n”在内的任何字符，请使用像”(.|\n)”的模式。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 正则 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[js实现prototype扩展的方法(字符串,日期,数组扩展)]]></title>
-      <url>/2017/05/12/js%E5%AE%9E%E7%8E%B0prototype%E6%89%A9%E5%B1%95%E7%9A%84%E6%96%B9%E6%B3%95(%E5%AD%97%E7%AC%A6%E4%B8%B2,%E6%97%A5%E6%9C%9F,%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95)/</url>
-      <content type="html"><![CDATA[<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div></pre></td><td class="code"><pre><div class="line">String.prototype.isEmpty = function () &#123; return !(/.?[^/s　]+/.test(this)); &#125; //检测字符串是否为空</div><div class="line">// 替换字符</div><div class="line">String.prototype.reserve = function(type) &#123;</div><div class="line"> if (type == 'int') return this.replace(/^/d/g, ''); // 替换字符串中除了数字以外的所有字符</div><div class="line"> else if (type == 'en') return this.replace(/[^A-Za-z]/g, ''); // 替换字符串中除了英文以外的所有字符</div><div class="line"> else if (type == 'cn') return this.replace(/[^/u4e00-/u9fa5/uf900-/ufa2d]/g, ''); // 替换字符串中除了中文以外的所有字符</div><div class="line"> else return this;</div><div class="line">&#125;</div><div class="line">// 字符串反转</div><div class="line">String.prototype.reverse = function() &#123;</div><div class="line"> return this.split('').reverse().join('');</div><div class="line">&#125;</div><div class="line">// 以一个中文算两个字符长度计算字符串的长度</div><div class="line">String.prototype.cnLength = function() &#123; return this.replace(/[^/x00-/xff]/g, ' * * ' ).length; &#125;</div><div class="line">// 替换字符串中的空格</div><div class="line">String.prototype.trim = function(type, char) &#123;</div><div class="line"> var type = type ? type.toUpperCase() : '';</div><div class="line"> switch (type) &#123;</div><div class="line">  case 'B' : // 替换所有欲清除字符,未定义char则默认为替换空格</div><div class="line">   return this.replace(char ? new RegExp(char, 'g') : /(/s+|　)/g, '');</div><div class="line">  case 'O' : // 将两个以上的连续欲清除字符替换为一个,未定义char则默认为替换空格</div><div class="line">   return char ? this.replace(new RegExp(char + '&#123;2,&#125;', 'g'), char) : this.replace(/[/s　]&#123;2,&#125;/g, ' ');</div><div class="line">  case 'L' : // 替换除左边欲清除字符,未定义char则默认为替换空格</div><div class="line">   return this.replace(char ? new RegExp('^(' + char + ') * ', 'g') : /^(/s|　) * /g, '');</div><div class="line">  case 'R' : // 替换除右边欲清除字符,未定义char则默认为替换空格</div><div class="line">   return this.replace(char ? new RegExp('(' + char + ') * $', 'g') : /(/s|　) * $/g, '');</div><div class="line">  default : // 替换除左右两边欲清除字符,未定义char则默认为替换空格</div><div class="line">   return this.replace(char ? new RegExp('^(' + char + ') * |(' + char + ') * $', 'g') : /(^/s * |　)|(　|/s * $)/g, '');</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line">// 判断字符串是否是数字</div><div class="line">String.prototype.isNumer = function(flag) &#123;</div><div class="line"> if (isNaN(this)) &#123;return false;&#125;</div><div class="line"> switch (flag) &#123;</div><div class="line">  case '+' : return /(^/+?|^/d?)/d * /.?/d+$/.test(this); // 正数</div><div class="line">  case '-' : return /^-/d * /.?/d+$/.test(this); // 负数</div><div class="line">  case 'i' : return /(^-?|^/+?|/d)/d+$/.test(this); // 整数</div><div class="line">  case '+i' : return /(^/d+$)|(^/+?/d+$)/.test(this); // 正整数</div><div class="line">  case '-i' : return /^-/d+$/.test(this); // 负整数</div><div class="line">  case 'f' : return /(^-?|^/+?|^/d?)/d * /./d+$/.test(this); // 浮点数</div><div class="line">  case '+f' : return /(^/+?|^/d?)/d * /./d+$/.test(this); // 正浮点数</div><div class="line">  case '-f' : return /^-/d * /./d$/.test(this); // 负浮点数</div><div class="line">  default : return true; // 缺省</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line">// 仿PHP的str_pad</div><div class="line">String.prototype.pad = function (input, length, type) &#123;</div><div class="line"> if (!input) return this;</div><div class="line"> if (!length || length &lt; 1) var length = 1;</div><div class="line"> var input = Array(length + 1).join(input), value;</div><div class="line"> var type = type ? type.toUpperCase() : '';</div><div class="line"> switch (type) &#123;</div><div class="line">  case 'LEFT' : return input + this;</div><div class="line">  case 'BOTH' : return input + this + input;</div><div class="line">  default : return this + input;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line">// 获取url对应参数的值</div><div class="line">String.prototype.getQuery = function(name) &#123;</div><div class="line"> var reg = new RegExp('(^|&amp;)' + name + ' = ([^&amp;] * )(&amp;|$)');</div><div class="line"> var r = this.substr(this.indexOf('/?') + 1).match(reg);</div><div class="line"> return r[2]?unescape(r[2]) : null;</div><div class="line">&#125;</div><div class="line">// 判断是否是日期格式(YYYY-MM-DD YYYY/MM/DD YYYY.MM.DD)</div><div class="line">String.prototype.isDate = function() &#123;</div><div class="line"> result = this.match(/^(/d&#123;1, 4&#125;)(-|//|.)(/d&#123;1, 2&#125;)/2(/d&#123;1, 2&#125;)$/);</div><div class="line"> if (!result) return false;</div><div class="line"> var d = new Date(result[1], result[3]-1, result[4])</div><div class="line"> var str = d.getFullYear() + result[2] + (d.getMonth() + 1) + result[2] + d.getDate();</div><div class="line"> return this == str;</div><div class="line">&#125;</div><div class="line">// 将字符串转为日期</div><div class="line">String.prototype.toDate = function() &#123;</div><div class="line"> var mDate = new Date(Date.parse(str));</div><div class="line"> if (isNaN(mDate)) &#123;</div><div class="line">  var arr = this.split('-');</div><div class="line">  mDate = new Date(arr[0], arr[1], arr[2]);</div><div class="line"> &#125;</div><div class="line"> return mDate;</div><div class="line">&#125;</div><div class="line">// 格式化日期, new Date().format('yyyy/mm/dd')</div><div class="line">Date.prototype.format = function(format) &#123;</div><div class="line"> var format = format.toLowerCase();</div><div class="line"> var type = &#123;</div><div class="line">  'm+' : this.getMonth()+1,</div><div class="line">  'd+' : this.getDate(),</div><div class="line">  'h+' : this.getHours(),</div><div class="line">  'i+' : this.getMinutes(),</div><div class="line">  's+' : this.getSeconds(),</div><div class="line">  'q+' : Math.floor((this.getMonth()+3)/3),</div><div class="line">  'ms' : this.getMilliseconds()</div><div class="line"> &#125;</div><div class="line"> if (/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));</div><div class="line"> for(var k in type) &#123;</div><div class="line">  if(new RegExp('('+ k +')').test(format)) &#123;</div><div class="line">   format = format.replace(RegExp.$1, RegExp.$1.length==1 ? type[k] : ('00'+ type[k]).substr((''+ type[k]).length));</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> return format;</div><div class="line">&#125;</div><div class="line">// 添加日期，对应参数分别是：类型(y-年, q-季, m-月, w-周, d-日, h-时, i-分, s-秒)和增加的值</div><div class="line">Date.prototype.addDate = function(type, num) &#123;</div><div class="line"> var type = type.toLowerCase();</div><div class="line"> switch (type) &#123;</div><div class="line">  case 's' : return new Date.parse(Date.parse(this) + (1000 * num));</div><div class="line">  case 'i' : return new Date.parse(Date.parse(this) + (60000 * num));</div><div class="line">  case 'h' : return new Date(Date.parse(this) + (3600000 * num));</div><div class="line">  case 'd' : return new Date(Date.parse(this) + (86400000 * num));</div><div class="line">  case 'w' : return new Date(Date.parse(this) + ((86400000 * 7) * num));</div><div class="line">  case 'm' : return new Date(this.getFullYear(), (this.getMonth()) + num, this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds());</div><div class="line">  case 'q' : return new Date(this.getFullYear(), (this.getMonth()) + num * 3, this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds());</div><div class="line">  case 'y' : return new Date((this.getFullYear() + num), this.getMonth(), this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds());</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line">// 计算两个日期</div><div class="line">Date.prototype.dateDiff = function(type, date) &#123;</div><div class="line"> if (typeof date == 'string') date = date.toDate();</div><div class="line"> switch (type) &#123;</div><div class="line">  case 's' : return parseInt((date - this) / 1000);</div><div class="line">  case 'i' : return parseInt((date - this) / 60000);</div><div class="line">  case 'h' : return parseInt((date - this) / 3600000);</div><div class="line">  case 'd' : return parseInt((date - this) / 86400000);</div><div class="line">  case 'w' : return parseInt((date - this) / (86400000 * 7));</div><div class="line">  case 'm' : return (date.getMonth() + 1) + ((date.getFullYear() - this.getFullYear()) * 12) - (this.getMonth() + 1);</div><div class="line">  case 'y' : return date.getFullYear() - this.getFullYear();</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line">// 判断对象是否是数组</div><div class="line">Object.prototype.isArray = function() &#123;return Object.prototype.toString.apply(this) == '[object Array]';&#125;</div><div class="line">// 判断数组内是否存在指定的元素</div><div class="line">Array.prototype.inArray = function (value) &#123;</div><div class="line"> if (this.length &lt; 2) return this[0] == value;</div><div class="line"> this.sort(function(a) &#123;</div><div class="line">  return new RegExp('^' + value).test(a) ? -1 : 1;</div><div class="line"> &#125;);</div><div class="line"> return this[0] == value;</div><div class="line">&#125;</div><div class="line">// 在数组中查找元素并返回第一次出现的位置索引，未找到则返回-1。</div><div class="line">Array.prototype.indexOf = function(string) &#123;</div><div class="line"> var len = this.length, i = 0;</div><div class="line"> if (len &lt; 2) return this[0] == value ? 0 : -1;</div><div class="line"> for (i; i &lt; len; i++) &#123;</div><div class="line">  if (this[i] == string) return i;</div><div class="line"> &#125;</div><div class="line"> return -1;</div><div class="line">&#125;</div><div class="line">// [1, 2, 3].each(function(x) &#123;return x+1&#125;) 得到2, 3, 4</div><div class="line">Array.prototype.each = function(c) &#123;</div><div class="line"> var ret = [];</div><div class="line"> for(var i = 0; i &lt; this.length; i++) &#123;</div><div class="line">  ret.push(c(this[i]));</div><div class="line"> &#125;</div><div class="line"> return ret;</div><div class="line">&#125;</div><div class="line">// [1, -1, 2].any(function(x) &#123;return x &lt; 0&#125;) 判断是否数组中有一个元素小于0</div><div class="line">Array.prototype.any = function(c) &#123;</div><div class="line"> for(var i = 0; i &lt; this.length; i++) &#123;</div><div class="line">  if (c(this)) return true;</div><div class="line"> &#125;</div><div class="line"> return false;</div><div class="line">&#125;</div><div class="line">// [1, 2, 3].all(function(x) &#123;return x &gt; 0&#125;) 判断是否数组中所有的元素都大于0</div><div class="line">Array.prototype.all = function(c) &#123;</div><div class="line"> for(var i = 0; i &lt; this.length; i++) &#123;</div><div class="line">  if (!c(this)) return false;</div><div class="line"> &#125;</div><div class="line"> return true;</div><div class="line">&#125;</div><div class="line">// 移除数组指定的元素,如果指定了limit,则仅移除limit个指定元素，如果省略limit或者其值为0，则所有指定元素都会被移除。</div><div class="line">Array.prototype.unset = function(string, limit) &#123;</div><div class="line"> var len = this.length, i = 0, count = 0;</div><div class="line"> for (i; i &lt; len; i++) &#123;</div><div class="line">  if (this[i] == string) &#123;</div><div class="line">   this.splice(i, 1);</div><div class="line">   if (limit &amp;&amp; limit &gt; 0) &#123;</div><div class="line">    count++;</div><div class="line">    if (count == limit) break;</div><div class="line">   &#125;</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> return this;</div><div class="line">&#125;</div><div class="line">// 移除数组中重复的元素</div><div class="line">Array.prototype.unique = function() &#123;</div><div class="line"> var arr = tmp = [], i, len = this.length;</div><div class="line"> if (len &lt; 2) return this;</div><div class="line"> for (i = 0; i &lt; len; i++) &#123;</div><div class="line">  if (tmp[this[i]]) &#123;</div><div class="line">   arr.push(this[i]);</div><div class="line">   tmp[this[i]] = true;</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> return arr;</div><div class="line">&#125;</div><div class="line">Array.prototype.min = function() &#123;return Math.min.apply(null, this)&#125; // 求数组中最小值</div><div class="line">Array.prototype.max = function() &#123;return Math.max.apply(null, this)&#125; // 求数组中最大值</div></pre></td></tr></table></figure>]]></content>
-      
-        
-        <tags>
-            
-            <tag> prototype </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[设置不让浏览器缓存的方法]]></title>
-      <url>/2017/05/12/%E4%B8%8D%E8%AE%A9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-      <content type="html"><![CDATA[<p>##　在html头中加入以下3句话，可以防止大部分浏览器缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt; </div><div class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, must-revalidate&quot;&gt; </div><div class="line">&lt;meta http-equiv=&quot;expires&quot; content=&quot;Wed, 26 Feb 1997 08:21:57 GMT&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>或者js中加入类似下面的代码，让每次的链接都不一样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s=<span class="built_in">Math</span>.random()*<span class="number">10</span>; </div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"checkCodeImg"</span>).innerHTML=<span class="string">"&lt;img src='/checkcode.jsp?rnd="</span>+s+<span class="string">"'/&gt;"</span>;</div></pre></td></tr></table></figure></p>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[编写jQuery插件]]></title>
-      <url>/2017/05/12/%E7%BC%96%E5%86%99jQuery%E6%8F%92%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>根据《jQuery高级编程》中的描述，jQuery插件开发方式主要有三种：</p>
-<p>1、通过$.extend()来扩展jQuery</p>
-<p>2、通过$.fn 向jQuery添加新的方法</p>
-<p>3、通过$.widget()应用jQuery UI的部件工厂方式创建</p>
-<p>通常我们使用第二种方法来进行简单插件开发，说简单是相对于第三种方式。第三种方式是用来开发更高级jQuery部件的，该模式开发出来的部件带有很多jQuery内建的特性，比如插件的状态信息自动保存、各种关于插件的常用方法等，非常贴心，这里不细说。</p>
-<p>而第一种方式又太简单，仅仅是在jQuery命名空间或者理解成在jQuery身上添加了一个静态方法而以。</p>
-<h2 id="jQuery-extend"><a href="#jQuery-extend" class="headerlink" title="jQuery.extend()"></a>jQuery.extend()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//var settings = &#123; validate: false, limit: 5, name: "foo" &#125;;</span></div><div class="line"><span class="keyword">var</span> options = &#123; <span class="attr">validate</span>: <span class="literal">true</span>, <span class="attr">name</span>: <span class="string">"bar"</span> &#125;;</div><div class="line"><span class="keyword">var</span> empty=&#123;&#125;;</div><div class="line"><span class="number">1</span>：jQuery.extend(settings, options);</div><div class="line"><span class="number">2</span>：jQuery.extend(empty，settings, options);</div><div class="line"><span class="comment">//输出结果</span></div><div class="line"><span class="number">1</span>：settings == &#123; <span class="attr">validate</span>: <span class="literal">true</span>, <span class="attr">limit</span>: <span class="number">5</span>, <span class="attr">name</span>: <span class="string">"bar"</span> &#125;</div><div class="line"><span class="number">2</span>：settings == &#123; <span class="attr">validate</span>: <span class="literal">true</span>, <span class="attr">limit</span>: <span class="number">5</span>, <span class="attr">name</span>: <span class="string">"bar"</span> &#125;</div><div class="line">  empty == &#123; <span class="attr">validate</span>: <span class="literal">true</span>, <span class="attr">limit</span>: <span class="number">5</span>, <span class="attr">name</span>: <span class="string">"bar"</span> &#125;</div></pre></td></tr></table></figure>
-<p>##　jQuery.fn.extend<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">jQuery.fn.extend(&#123;</div><div class="line">  <span class="attr">check</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.checked = <span class="literal">true</span>; &#125;);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">uncheck</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.checked = <span class="literal">false</span>; &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//结果</span></div><div class="line">$(<span class="string">"input[type=checkbox]"</span>).check();</div><div class="line">$(<span class="string">"input[type=radio]"</span>).uncheck();</div></pre></td></tr></table></figure></p>
-<p>##　一个简单的示例,基本格式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.fn.WO=<span class="function"><span class="keyword">function</span>(<span class="params">se</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.css(<span class="string">"color"</span>,se)<span class="comment">//此处的this==jQuery选中的元素，this已经是一个jQuery集合</span></div><div class="line">	<span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).append(<span class="string">' '</span> + $(<span class="keyword">this</span>).attr(<span class="string">'href'</span>));<span class="comment">//此处的this为一个简单的dom对象，所以需要用$()</span></div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">$(<span class="string">"a"</span>).WO(<span class="string">"green"</span>);<span class="comment">//$("a")==插件中的this,</span></div></pre></td></tr></table></figure></p>
-<h2 id="支持链式调用"><a href="#支持链式调用" class="headerlink" title="支持链式调用"></a>支持链式调用</h2><p>我们都知道jQuery一个非常优雅的特性是支持链式调用，选择好DOM元素后可以不断地调用其他方法。</p>
-<p>要让插件不打破这种链式调用，只需return一下即可。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.fn.myPlugin = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.css(<span class="string">'color'</span>,<span class="string">'red'</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).append(<span class="string">' '</span> + $(<span class="keyword">this</span>).attr(<span class="string">'href'</span>));</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h2 id="让插件接收参数"><a href="#让插件接收参数" class="headerlink" title="让插件接收参数"></a>让插件接收参数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//编写</span></div><div class="line">$.fn.myPlugin = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> defaults=&#123;</div><div class="line">        <span class="string">'color'</span> : <span class="string">'red'</span>,</div><div class="line">        <span class="string">'fontSize'</span> : <span class="string">'12px'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> settings=$.extend(defaults,options);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.css(&#123;</div><div class="line">        <span class="string">'color'</span> : settings.color,</div><div class="line">        <span class="string">'fontSize'</span> : settings.fontSize</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//调用</span></div><div class="line">$(<span class="string">'a'</span>).myPlugin(&#123;</div><div class="line">    <span class="string">'color'</span>: <span class="string">'#2C9929'</span>,</div><div class="line">    <span class="string">'fontSize'</span>:<span class="string">'32px'</span><span class="comment">//未设置字体大小时，为默认值12px</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="保护好默认参数"><a href="#保护好默认参数" class="headerlink" title="保护好默认参数"></a>保护好默认参数</h2><blockquote>
-<p>注意到上面代码调用extend时会将defaults的值改变，这样不好，因为它作为插件因有的一些东西应该维持原样，另外就是如果你在后续代码中还要使用这些默认值的话，当你再次访问它时它已经被用户传进来的参数更改了。<br>一个好的做法是将一个新的空对象做为$.extend的第一个参数，defaults和用户传递的参数对象紧随其后，这样做的好处是所有值被合并到这个空对象上，保护了插件里面的默认值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.fn.myPlugin = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> defaults=&#123;</div><div class="line">        <span class="string">'color'</span> : <span class="string">'red'</span>,</div><div class="line">        <span class="string">'fontSize'</span> : <span class="string">'14px'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">var</span> settings=$.extend(&#123;&#125;,defaults,options);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.css(&#123;</div><div class="line">        <span class="string">'color'</span> : settings.color,</div><div class="line">        <span class="string">'fontSize'</span> : settings.fontSize</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 插件 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[梦想]]></title>
-      <url>/2017/05/05/DreamWhere/</url>
-      <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">穿上牛仔去流浪</div><div class="line">阳光打在脸上</div><div class="line">单车是我的翅膀</div><div class="line">                         ---梦想</div><div class="line"></div><div class="line">上班了                                                                                                                     </div><div class="line">骑上单车                                                                                                         </div><div class="line">吹着口哨</div><div class="line"></div><div class="line">下班喽</div><div class="line">吹着口哨</div><div class="line">骑上单车</div><div class="line">回家</div><div class="line"></div><div class="line">每天穿梭在</div><div class="line">城市的中间</div><div class="line">这是一个小城</div><div class="line">如果</div><div class="line">你也在这座小城的话</div><div class="line">你会发现</div><div class="line">一个男孩</div><div class="line">吹着口哨</div><div class="line">骑着单车</div><div class="line">在街道上风驰</div><div class="line">或者</div><div class="line">从你身边呼啸而过</div><div class="line">没错</div><div class="line">就是我...</div><div class="line"></div><div class="line">人生,其实就是一场旅程</div><div class="line">每个人的目的地都不同</div><div class="line">有的人,会慢行</div><div class="line">有的人,会狂奔</div><div class="line">每个人看见的风景都不同</div><div class="line">角度</div><div class="line"></div><div class="line">时间对于</div><div class="line">幸福的人,快</div><div class="line">痛苦的人,慢</div><div class="line"></div><div class="line">思绪乱了</div><div class="line">理想忘了</div><div class="line">朋友走了</div><div class="line">事业成了?</div><div class="line">天空灰了</div><div class="line">眼泪掉了</div><div class="line">爱情跑了</div><div class="line">我怎么了?</div><div class="line"></div><div class="line">我很幸福,我很满足,朋友都说我:你真是一个乐天的人.于是,我笑了!</div><div class="line">我很郁闷,我很迷茫,状态告诉我:你就是一个消极的人.于是,我不知所措了!</div></pre></td></tr></table></figure>]]></content>
-      
-        
-        <tags>
-            
-            <tag> poetry </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[sass]]></title>
-      <url>/2017/04/28/sass/</url>
-      <content type="html"><![CDATA[<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 将背景颜色值定义成变量</div><div class="line">$red : #FF0000;</div><div class="line">$orange : #FFA500;</div><div class="line">$yellow : #FFFF00;</div><div class="line">$green : #008000;</div><div class="line">$bluegreen : #00FFFF;</div><div class="line">$blue : #0000FF;</div><div class="line">$purple : #800080;</div></pre></td></tr></table></figure>
-<h2 id="定义list"><a href="#定义list" class="headerlink" title="定义list"></a>定义list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 储存背景颜色</div><div class="line">$bgcolorlist: $red $orange $yellow $green $bluegreen $blue $purple;</div></pre></td></tr></table></figure>
-<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 使用SASS for循环语句为每一个li设置background-color</div><div class="line">@for $i from 1 to length($bgcolorlist)+1 &#123;</div><div class="line">    #main-container ul li:nth-child(#&#123;$i&#125;) &#123;</div><div class="line">        background-color: nth($bgcolorlist,$i);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ul>
-<li>from后的数值，即循环开始的i值不能为0，这是语法规定的。</li>
-<li>for循环从i = 1开始，但并不是在i = length($bgcolorlist)时结束，我们本来是需要循环7次，但如果我们写成to length($bgcolorlist)的话，只会循环6次，因此是to length($bgcolorlist)+1。</li>
-</ul>
-<h2 id="定义map"><a href="#定义map" class="headerlink" title="定义map"></a>定义map</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//将背景颜色以键值对的形式存在map中</div><div class="line">$bgcolorlist : (</div><div class="line">    1: $red,</div><div class="line">    2: $orange,</div><div class="line">    3: $yellow,</div><div class="line">    4: $green,</div><div class="line">    5: $bluegreen,</div><div class="line">    6: $blue,</div><div class="line">    7: $purple);</div></pre></td></tr></table></figure>
-<h2 id="each"><a href="#each" class="headerlink" title="each"></a>each</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 使用SASS each语法为每一个li设置background-color</div><div class="line">@each $i, $color in $bgcolorlist &#123;</div><div class="line">    #main-container ul li:nth-child(#&#123;$i&#125;) &#123;</div><div class="line">        background-color: $color;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> sass </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[使用VS自带的less编译器]]></title>
-      <url>/2017/04/25/VS%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B8%A6%E7%9A%84less%E7%BC%96%E8%AF%91%E5%99%A8/</url>
-      <content type="html"><![CDATA[<h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><blockquote>
-<p>1.安装最新版本的Node.JS已默认自带了NPM，无需通过GitHub去安装</p>
-<p>2.找到node_modules文件夹</p>
-<p>3.启动Node.js的cmd命令窗口</p>
-</blockquote>
-<h3 id="检测版本号"><a href="#检测版本号" class="headerlink" title="检测版本号"></a>检测版本号</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node -v</div><div class="line"></div><div class="line">npm -version</div></pre></td></tr></table></figure>
-<h2 id="安装less包"><a href="#安装less包" class="headerlink" title="安装less包"></a>安装less包</h2><blockquote>
-<p>通过npm install -d less命令安装LESS包。</p>
-<p>　为了将less包安装在nodejs的node_modules目录下，可以先进入d:盘，然后使用该命令</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install <span class="_">-d</span> less</div></pre></td></tr></table></figure>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>安装完成之后，需将带有lessc 和lessc.cmd文件的.bin文件路径配置到环境变量中</p>
-<p>环境变量：计算机&gt;&gt;属性&gt;&gt;高级系统设置&gt;&gt;环境变量&gt;&gt;用户变量&gt;&gt;编辑&gt;&gt;在已有的path后加入刚才的路径，注意需用“;”隔开；</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1.在node的cmd命令窗口，先cd到放有需要编译的less文件的文件夹Less<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> Less</div></pre></td></tr></table></figure></p>
-<p>2.执行以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Less/lessc demo.less &gt; demo.css</div></pre></td></tr></table></figure></p>
-<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>并不是实时监控编译</p>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> lessc  less VS2013 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[文章链接]]></title>
-      <url>/2017/04/24/margin%E6%97%A0%E6%95%88/</url>
-      <content type="html"><![CDATA[<h2 id="margin-0-auto无效原因"><a href="#margin-0-auto无效原因" class="headerlink" title="margin 0 auto无效原因"></a>margin 0 auto无效原因</h2><p>1.要给居中的元素一个宽度，否者无效。</p>
-<p>2.该元素一定不能浮动，否者无效。</p>
-<p>3 在HTML中使用<center></center>标签，需考虑好整体构架，否者全部元素都会居中的。</p>
-<p>4.没声明DOCTYPE</p>
-<p>①DOCTYPE是document type（文档类型）的简写，在web设计中用来说明你用的XHTML或者HTML是什么版本。要建立符合标准的网页，DOCTYPE声明是必不可少的关键组成部分！</p>
-<p>②看看下面的代码，是不是很熟悉？像这样的，在文档最顶端，所有代码之上的乱七八糟的东西，就是用来声明DOCTYPE的！<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
-<p>③你有三种选择，用来声明DOCTYPE</p>
-<ul>
-<li><p>过渡的(Transitional)：要求非常宽松的DTD，它允许你继续使用HTML4.01的标识(但是要符合xhtml的写法)，完整代码如下：<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
-</li>
-<li><p>严格的(Strict)：要求严格的DTD，你不能使用任何表现层的标识和属性，例如<br>，完整代码如下：<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></p>
-</li>
-<li><p>框架的(Frameset)：专门针对框架页面设计使用的DTD，如果你的页面中包含有框架，需要采用这种DTD，完整代码如下：<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</a></p>
-</li>
-</ul>
-<p>④至于选择哪种。。使用过度的就可以了。。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> margin </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[函数默认参数设置]]></title>
-      <url>/2017/04/18/%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/</url>
-      <content type="html"><![CDATA[<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> simue (<span class="variable">$a</span>=1,<span class="variable">$b</span>=2)&#123;</div><div class="line">  <span class="built_in">return</span> <span class="variable">$a</span>+<span class="variable">$b</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">echo</span> simue(); //输出3</div><div class="line"><span class="built_in">echo</span> simue(10); //输出12</div><div class="line"><span class="built_in">echo</span> simue(10,20); //输出30</div></pre></td></tr></table></figure>
-<h2 id="CSharp"><a href="#CSharp" class="headerlink" title="CSharp"></a>CSharp</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//MVC  Controller.cs</div><div class="line"> public ActionResult NewsList(string code = <span class="string">"newsSubject"</span>, int topNum = 2)</div><div class="line">&#123;</div><div class="line">    </div><div class="line">    var resultData = SubjectContentBO.GetSubjectContentDtByCode(code, topNum);</div><div class="line">     //int topNum = Request.QueryString[<span class="string">"topNum"</span>] == null ? 2 : Convert.ToInt32(Request.QueryString[<span class="string">"topNum"</span>].ToString());</div><div class="line">     //强转类型时会报错</div><div class="line">    ViewBag.dt = resultData;</div><div class="line">    <span class="built_in">return</span> View();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><blockquote>
-<p>1.如果写function simue(a=1,b=2){}会提示缺少对象。<br>  2.js函数中有个储存参数的数组arguments ，所有函数获得的参数会被编译器挨个保存到这个数组中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">simue</span></span> ()&#123;</div><div class="line">  var a = arguments[0] ? arguments[0] : 1;</div><div class="line">  var b = arguments[1] ? arguments[1] : 2;</div><div class="line">  <span class="built_in">return</span> a+b;</div><div class="line">&#125;</div><div class="line">alert( simue() ); //输出3</div><div class="line">alert( simue(10) ); //输出12</div><div class="line">alert( simue(10,20) ); //输出30</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="jsECMA6有默认参数的设置"><a href="#jsECMA6有默认参数的设置" class="headerlink" title="jsECMA6有默认参数的设置"></a>jsECMA6有默认参数的设置</h2><p>。。。待续</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 默认参数 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CS]]></title>
-      <url>/2017/03/29/ASP.NET%20MVC/</url>
-      <content type="html"><![CDATA[<h2 id="无法直接启动带有类库输出类型"><a href="#无法直接启动带有类库输出类型" class="headerlink" title="无法直接启动带有类库输出类型"></a>无法直接启动带有类库输出类型</h2><p>解决：右击解决方案，属性，启动项目，当前选定内容</p>
-<p>##<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MMMM-dd”)//中文的操作系统-四月；英文的-April<br>     @item.LeaveInfoStartTime.ToLongDateString().ToString();//2017年4月26</p>
-<pre><code>$(function () {
-        $(&quot;.pager&quot;).pager({
-            pageSize: @(Model.PageSize),
-            count:@(Model.TotalCount),
-            currentPageIndex:@(Model.PageIndex),
-            type:&quot;post&quot;
-        });
-    });
-
-
-     //显示多少个字符后加省略号
-(function(){
-    var obj=$(&quot;tr td p[id=&apos;lenth50&apos;]&quot;);
-    $.each(obj,function(index,o) {
-        var txt = 50;//设置留下的字数
-        //var o = document.getElementById(&quot;lenth50&quot;);//id   html 中设置
-        var s = o.innerHTML;
-        var p = document.createElement(&quot;span&quot;);
-        var n = document.createElement(&quot;font&quot;);
-        p.innerHTML = s.substring(0,txt);
-        n.innerHTML = s.length &gt; txt ? &quot;...&quot; : &quot;&quot;;
-        o.innerHTML = &quot;&quot;;
-        o.appendChild(p);
-        o.appendChild(n);
-    });
-
-
-})();
-</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>if(“1”.Equals(item.DocType))<br>@item.CreateTime.ToShortDateString();//2017/3/23<br>@item.CreateTime.ToString(“MM-dd”) </p>
-<h2 id="HTML-帮助器"><a href="#HTML-帮助器" class="headerlink" title="HTML 帮助器"></a>HTML 帮助器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">在上面的代码中，HTML 帮助器用于修改 HTML 输出：</div><div class="line">@Url.Content() - URL 内容将在此处插入。</div><div class="line">@Html.ActionLink() - HTML 链接将在此处插入。</div><div class="line">@Html.TextBox(<span class="string">"Title"</span>, condition.Title) - 生成&lt;input id=<span class="string">"Title"</span> name=<span class="string">"Title"</span> <span class="built_in">type</span>=<span class="string">"text"</span> value=<span class="string">"韩"</span>&gt;的标签</div><div class="line">@Html.DropDownListFor(m =&gt; m.RecompID, (IEnumerable&lt;SelectListItem&gt;)ViewBag.ItemList)</div><div class="line">@Html.TextBoxFor(m =&gt; m.Jurisdiction, new &#123; onclick = <span class="string">"SelectItem(this);"</span>, style = <span class="string">"cursor:pointer;"</span>, @<span class="built_in">readonly</span> = <span class="string">"readonly"</span> &#125;)</div></pre></td></tr></table></figure>
-<h3 id="HTML-帮助器-1"><a href="#HTML-帮助器-1" class="headerlink" title="HTML 帮助器"></a>HTML 帮助器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">Razor 语法：</div><div class="line">@Html.ActionLink(<span class="string">"About this Website"</span>, <span class="string">"About"</span>)</div><div class="line">传参数的：</div><div class="line">@Url.Action(<span class="string">"Edit"</span>, new &#123; id = item.ID&#125;)?aa=666//controllers:直接接收string aa就好</div><div class="line">ASP 语法：</div><div class="line">&lt;%=Html.ActionLink(<span class="string">"About this Website"</span>, <span class="string">"About"</span>)%&gt;</div><div class="line">第一个参数是链接文本，第二个参数是控制器操作的名称。</div><div class="line">上面的 Html.ActionLink() 帮助器，输出以下的 HTML：</div><div class="line">&lt;a href=<span class="string">"/Home/About"</span>&gt;About this Website&lt;/a&gt;</div><div class="line"></div><div class="line">@Html.Raw() 方法输出带有html标签的字符串，如：</div><div class="line">@Html.Raw(<span class="string">"&lt;div style='color:red'&gt;输出字符串&lt;/div&gt;"</span>)</div><div class="line">结果：输出字符串</div></pre></td></tr></table></figure>
-<h2 id="Razor-语法"><a href="#Razor-语法" class="headerlink" title="Razor 语法"></a>Razor 语法</h2><p>Razor 是一种标记语法，可以让您将基于服务器的代码（Visual Basic 和 C#）嵌入到网页中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在上面的代码中，红色标记的代码是使用 Razor 标记的 C<span class="comment">#。</span></div><div class="line">@ViewBag.Title - 页面标题将在此处插入。</div><div class="line">@RenderBody() - 页面内容将在此处呈现。</div></pre></td></tr></table></figure>
-<h3 id="主要的-Razor-C-语法规则"><a href="#主要的-Razor-C-语法规则" class="headerlink" title="主要的 Razor C# 语法规则"></a>主要的 Razor C# 语法规则</h3><ul>
-<li>Razor 代码块包含在 @{ … } 中</li>
-<li>内联表达式（变量和函数）以 @ 开头</li>
-<li>代码语句用分号结束</li>
-<li>变量使用 var 关键字声明</li>
-<li>字符串用引号括起来</li>
-<li>C# 代码区分大小写</li>
-<li>C# 文件的扩展名是 .cshtm</li>
-</ul>
-<h2 id="ContrControllers-文件夹"><a href="#ContrControllers-文件夹" class="headerlink" title="ContrControllers 文件夹"></a>ContrControllers 文件夹</h2><p>Web 服务器通常会将进入的 URL 请求直接映射到服务器上的磁盘文件。<br>MVC 将 URL 映射到方法。这些方法在类中被称为”控制器”。<br>控制器负责处理进入的请求，处理输入，保存数据，并把响应发送回客户端。</p>
-<h2 id="Views-文件夹"><a href="#Views-文件夹" class="headerlink" title="Views 文件夹"></a>Views 文件夹</h2><p>Views 文件夹存储的是与应用程序显示（用户界面）相关的文件（HTML 文件）。根据所采用的语言内容，这些文件可能扩展名可能是 html、asp、aspx、cshtml 和 vbhtml。<br>Views 文件夹中包含每个控制器对应的一个文件夹。</p>
-<h2 id="model"><a href="#model" class="headerlink" title="@model"></a>@model</h2><p>ASP.NET MVC提供了一种利用强类型的方法来将数据或对象传递到视图模板中。这种强类型的方法为你的编码过程提供了很丰富的编辑时的智能输入提示信息与非常好的编译时的检查。<br>@model关键字允许我们在视图模板中直接访问在控制器类中通过使用强类型的“模型”而传递过来的Movie类的列表。</p>
-<h2 id="Razor-布局页"><a href="#Razor-布局页" class="headerlink" title="Razor 布局页"></a>Razor 布局页</h2><blockquote>
-<p>在Razor引擎中没有了“母版页”，取而代之的是叫做“布局”的页面（_Layout。cshtml）放在了共享视图文件夹中。模板页：@RenderBody()占位符；局部页面：@RenderPage()；模板页预设区域：@RenderSection(“”)</p>
-</blockquote>
-<h3 id="RenderBody"><a href="#RenderBody" class="headerlink" title="@RenderBody"></a>@RenderBody</h3><p>当创建基于_Layout.cshtml布局页面的视图时，视图的内容会和布局页面合并，而新创建视图的内容会通过_Layout.cshtml布局页面的@RenderBody()方法呈现在标签之间。</p>
-<p>@RenderBody()只能在_Layout.cshtml中使用一次,而@RenderPage()则可以使用多次!</p>
-<h3 id="RenderPage"><a href="#RenderPage" class="headerlink" title="@RenderPage"></a>@RenderPage</h3><p>从名称可以猜出来这个方法是要呈现一个页面。比如网页中固定的头部可以单独放在一个共享的视图文件中，然后在布局页面中通过这个方法调用，用法如下：</p>
-<p>@RenderPage(“~/Views/Shared/_Header.cshtml”)</p>
-<p>带参数</p>
-<p>@RenderPage(“~/Views/Shared/_Header.cshtml”,new{parm=”my”,parm2=”you”)</p>
-<p>调用页面获取参数：</p>
-<p>//获取 RenderPage() 传递过来的参数<br>@PageData[“param”]</p>
-<h3 id="RenderSection"><a href="#RenderSection" class="headerlink" title="@RenderSection"></a>@RenderSection</h3><p>布局页面还有节（Section）的概念，也就是说，如果某个视图模板中定义了一个节，那么可以把它单独呈现出来</p>
-<p>为了防止因缺少节而出现异常，可以给RenderSection()提供第2个参数：</p>
-<p>@RenderSection(“head”, false)<br>或<br>@if (IsSectionDefined(“head”))<br>{<br>@RenderSection(“head”, false)<br>}<br>else<br>{</p>
-<p></p><p>SubMenu Section is not defined!</p><br>}<p></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> c# </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[条件注释]]></title>
-      <url>/2017/03/17/%E6%9D%A1%E4%BB%B6%E6%B3%A8%E9%87%8A/</url>
-      <content type="html"><![CDATA[<h1 id="条件注释"><a href="#条件注释" class="headerlink" title="条件注释"></a>条件注释</h1><blockquote>
-<p>   条件注释是一种安全的区分IE浏览器版本的语法，且被认为是取代针对IE css hack的首选办法。</p>
-</blockquote>
-<h1 id="条件注释简介"><a href="#条件注释简介" class="headerlink" title="条件注释简介"></a>条件注释简介</h1><blockquote>
-<p>   IE中的条件注释（Conditional comments）对IE的版本和IE非IE有优秀的区分能力，是WEB设计中常用的hack方法。<br>    条件注释只能用于IE5以上。<br>    如果你安装了多个IE，条件注释将会以最高版本的IE为标准。<br>    条件注释的基本结构和HTML的注释(&lt;!– –&gt;)是一样的。因此IE以外的浏览器将会把它们看作是普通的注释而完全忽略它们。<br>    IE将会根据if条件来判断是否如解析普通的页面内容一样解析条件注释里的内容。</p>
-</blockquote>
-<h1 id="条件注释属性"><a href="#条件注释属性" class="headerlink" title="条件注释属性"></a>条件注释属性</h1><blockquote>
-<p>gt : greater than，选择条件版本以上版本，不包含条件版本<br>lt : less than，选择条件版本以下版本，不包含条件版本<br>gte : greater than or equal，选择条件版本以上版本，包含条件版本<br>lte : less than or equal，选择条件版本以下版本，包含条件版本<br>! : 选择条件版本以外所有版本，无论高低</p>
-</blockquote>
-<h1 id="条件注释写法"><a href="#条件注释写法" class="headerlink" title="条件注释写法"></a>条件注释写法</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;用于 IE &lt;![endif]--&gt;</div><div class="line">&lt;!--[<span class="keyword">if</span> IE 6]&gt;用于 IE6 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> IE 7]&gt;用于 IE7 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> IE 8]&gt;用于 IE8 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> IE 9]&gt;用于 IE9 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> gt IE 6]&gt; 用于 IE6 以上版本&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> lte IE 7]&gt; 用于 IE7或更低版本 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> gte IE 8]&gt;用于 IE8 或更高版本 &lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> lt IE 9]&gt;用于 IE9 以下版本&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[<span class="keyword">if</span> !IE]&gt; --&gt;用于非 IE &lt;!-- &lt;![endif]--&gt;</div></pre></td></tr></table></figure>
-<h1 id="LeeGang"><a href="#LeeGang" class="headerlink" title="LeeGang"></a>LeeGang</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//非IE</div><div class="line">&lt;![<span class="keyword">if</span> !IE]&gt;</div><div class="line">Place Content here <span class="keyword">for</span> Users of all other Browsers.</div><div class="line">&lt;![endif]&gt;</div><div class="line">//IE</div><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line">Place Content here <span class="keyword">for</span> Users of Internet Explorer.</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[SPA]]></title>
-      <url>/2017/02/20/SPA1/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不知你有没有发现，像Github、百度、微博等这些大站，已经不再使用普通的a标签做跳转了。他们大多使用Ajax请求替代了a标签的默认跳转，然后使用HTML5的新API修改了Url，你可以在F12的Network面板里发现这个秘密。</p>
-<p>这项技术并没有特别标准的学名，大家都称呼为Pjax，意为PushState + Ajax。这并不完全准确，因为还有Hash + Ajax等方法，但为了方便，我们下文还是统称为Pjax。</p>
-<h1 id="为什么要这么做？"><a href="#为什么要这么做？" class="headerlink" title="为什么要这么做？"></a>为什么要这么做？</h1><p>Pjax是一个优秀的解决方案，你有足够多的理由来使用它：</p>
-<ul>
-<li>可以在页面切换间平滑过渡，增加Loading动画。</li>
-<li>可以在各个页面间传递数据，不依赖URL。</li>
-<li>可以选择性的保留状态，如音乐网站，切换页面时不会停止播放歌曲。</li>
-<li>所有的标签都可以用来跳转，不仅仅是a标签。</li>
-<li>避免了公共JS的反复执行，如无需在各个页面打开时都判断是否登录过等等。</li>
-<li>减少了请求体积，节省流量，加快页面响应速度。</li>
-<li>平滑降级到低版本浏览器上，对SEO也不会有影响。<h1 id="原理呢？"><a href="#原理呢？" class="headerlink" title="原理呢？"></a>原理呢？</h1>Pjax的原理十分简单。</li>
-</ul>
-<ol>
-<li>拦截a标签的默认跳转动作。</li>
-<li>使用Ajax请求新页面。</li>
-<li>将返回的Html替换到页面中。</li>
-<li>使用HTML5的History API或者Url的Hash修改Url。</li>
-</ol>
-<h1 id="HTML5-History-API"><a href="#HTML5-History-API" class="headerlink" title="HTML5 History API"></a>HTML5 History API</h1><p>我们来看看HTML5在History里增加了什么：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.pushState(state, title, url)</div></pre></td></tr></table></figure></p>
-<p>pushState方法会将当前的url添加到历史记录中，然后修改当前url为新url。请注意，这个方法只会修改地址栏的Url显示，但并不会发出任何请求。我们正是基于此特性来实现Pjax。它有3个参数：</p>
-<ul>
-<li>state: 可以放任意你想放的数据，它将附加到新url上，作为该页面信息的一个补充。</li>
-<li>title: 顾名思义，就是document.title。不过这个参数目前并无作用，浏览器目前会选择忽略它。</li>
-<li>url: 新url，也就是你要显示在地址栏上的url。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.replaceState(state, title, url)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>replaceState方法与pushState大同小异，区别只在于pushState会将当前url添加到历史记录，之后再修改url，而replaceState只是修改url，不添加历史记录。</p>
-<p>window.onpopstate 事件<br>一般来说，每当url变动时，popstate事件都会被触发。但若是调用pushState来修改url，该事件则不会触发，因此，我们可以把它用作浏览器的前进后退事件。该事件有一个参数，就是上文pushState方法的第一个参数state。</p>
-<p>一个实例：<br>这里我们以daipig为例，打开daipig，地址栏是<a href="http://www.daipig.com" target="_blank" rel="external">http://www.daipig.com</a> 。接下来打开F12 Console，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.pushState(&#123; a: 1, b: 2 &#125;, null, &quot;http://www.daipig.com/abcdefg&quot;);</div></pre></td></tr></table></figure></p>
-<p>可以发现，url已经变成我们输入的url了，但页面并没有刷新，也没有发出任何请求。现在再输入history.state，就可以看到我们刚刚传过来的第一个参数state了。</p>
-<p>这时点击后退，url会回到www.daipig.com，同样是没有刷新。只不过后退的时候其实是触发了window.onpopstate事件的。</p>
-<p>详细文档可以查阅MDN： <a href="https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_</a>…</p>
-<h1 id="怎么完整的实现Pjax？"><a href="#怎么完整的实现Pjax？" class="headerlink" title="怎么完整的实现Pjax？"></a>怎么完整的实现Pjax？</h1><p>Pjax的原理上文已经讲了，并不复杂。我实现了一个比较粗糙的Pjax库，已经能满足不少需求，如果你有兴趣，可以上Github帮忙完善一下代码。地址是：<a href="https://github.com/Coffcer/coffce-pjax" target="_blank" rel="external">https://github.com/Coffcer/coffce-pjax</a> 。</p>
-<p>完整的代码见Github，这里我们只谈需要注意的一些地方。</p>
-<h1 id="不支持HTML5-PushState的浏览器怎么办？"><a href="#不支持HTML5-PushState的浏览器怎么办？" class="headerlink" title="不支持HTML5 PushState的浏览器怎么办？"></a>不支持HTML5 PushState的浏览器怎么办？</h1><p>IE6到IE9是不支持pushState的，要修改Url，只能利用Url的Hash，也即是#号。</p>
-<p>你可以随意找个网站试一下，在url后面加上#号和任意内容，页面并不会刷新。此时点击后退也只会回到上一条#号，同样不会刷新。</p>
-<p>那么我们只需把pushState(新url)换成localtion.hash = 新url，把onpopstate事件换成onhashchange事件就可以兼容IE了。<br>QQ音乐，网易云音乐等就是使用这种方式</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> pjax </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[WebSocket]]></title>
-      <url>/2017/02/16/websocket/</url>
-      <content type="html"><![CDATA[<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>HTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。<br>因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27836172&auto=0&height=66"></iframe><br><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=27836172&auto=0&height=32"></iframe>
-
-
-<pre><code>/* The input control fonts */
-input,button,textarea,select,optgroup,option {
-    font-family:inherit;
-    font-size:inherit;
-    font-style:inherit;
-    font-weight:inherit;
-}
-</code></pre><h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><h2 id="WebSocket是基于HTTP的功能追加协议"><a href="#WebSocket是基于HTTP的功能追加协议" class="headerlink" title="WebSocket是基于HTTP的功能追加协议"></a>WebSocket是基于HTTP的功能追加协议</h2><p>WebSocket最初由html5提出，但现在已经发展为一个独立的协议标准。WebSocket可以分为协议（ Protocol ）和 API 两部分，分别由 IETF 和W3C制定了标准。</p>
-<p>先来看看WebSocket协议的建立过程。</p>
-<p>为了实现WebSocket通信，首先需要客户端发起一次普通HTTP请求（也就是说，WebSocket的建立是依赖HTTP的）。请求报文可能像这样：</p>
-<pre><code>GET ws://websocket.example.com/ HTTP/1.1
-Host: websocket.example.com
-Upgrade: websocket
-Connection: Upgrade
-Origin: http://example.com
-Sec-WebSocket-Key:pAloKxsGSHtpIHrJdWLvzQ==
-Sec-WebSocket-Version:13
-</code></pre><p>其中HTTP头部字段 Upgrade: websocket 和 Connection: Upgrade 很重要，告诉服务器通信协议将发生改变，转为WebSocket协议。支持WebSocket的服务器端在确认以上请求后，应返回状态码为 101 Switching Protocols 的响应：</p>
-<pre><code>HTTP/1.1 101 Switching Protocols
-Upgrade: websocket
-Connection: Upgrade
-Sec-WebSocket-Accept: nRu4KAPUPjjWYrnzxDVeqOxCvlM=
-</code></pre><p>其中字段 Sec-WebSocket-Accept 是由服务器对前面客户端发送的 Sec-WebSocket-Key 进行确认和加密后的结果，相当于一次验证，以帮助客户端确信对方是真实可用的WebSocket服务器。</p>
-<p>验证通过后，这个握手响应就确立了WebSocket连接，此后，服务器端就可以主动发信息给客户端了。此时的状态比较像服务器端和客户端接通了电话，无论是谁有什么信息想告诉对方，开口就好了。</p>
-<p>一旦建立了WebSocket连接，此后的通信就不再使用HTTP了，改为使用WebSocket独立的数据帧（这个帧有办法看到，见后文）。</p>
-<p>整个过程像这样：</p>
-<p><a href="https://lee-dragon.github.io/images/websocket.png" title="websocket原理图" target="_blank" rel="external">!未加载</a></p>
-<h1 id="简单的应用示例"><a href="#简单的应用示例" class="headerlink" title="简单的应用示例"></a>简单的应用示例</h1><h2 id="应用WebSocket有这样几件事要做："><a href="#应用WebSocket有这样几件事要做：" class="headerlink" title="应用WebSocket有这样几件事要做："></a>应用WebSocket有这样几件事要做：</h2><ol>
-<li>选用 支持WebSocket的浏览器 。</li>
-<li>网页内添加创建WebSocket的代码。</li>
-<li>服务器端添加使用WebSocket通信的代码。</li>
-</ol>
-<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>以Node的服务器为例，我们使用 ws 这个组件，这样搭建一个支持WebSocket的服务器端：<br>需要注意的是：先</p>
-<pre><code>cnpm install request --save
-cnpm install dateformat --save
-cnpm install ws --save
-</code></pre><p>后cd到demo.js所在目录</p>
-<p><code>node demo.js</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var request = require(&quot;request&quot;);</div><div class="line">var dateFormat = require(&quot;dateformat&quot;);</div><div class="line">var WebSocket = require(&quot;ws&quot;),</div><div class="line">    WebSocketServer = WebSocket.Server,</div><div class="line">    wss = new WebSocketServer(&#123;</div><div class="line">        port: 8080,</div><div class="line">        path: &quot;/guest&quot;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">// 收到来自客户端的连接请求后，开始给客户端推消息</div><div class="line">wss.on(&quot;connection&quot;, function(ws) &#123;</div><div class="line">    ws.on(&quot;message&quot;, function(message) &#123;</div><div class="line">        console.log(&quot;received: %s&quot;, message);</div><div class="line">    &#125;);</div><div class="line">    sendGuestInfo(ws);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">function sendGuestInfo(ws) &#123;</div><div class="line">    request(&quot;http://uinames.com/api?region=china&quot;,</div><div class="line">        function(error, response, body) &#123;</div><div class="line">            if (!error &amp;&amp; response.statusCode === 200) &#123;</div><div class="line">                var jsonObject = JSON.parse(body),</div><div class="line">                    guest = jsonObject.name + jsonObject.surname,</div><div class="line">                    guestInfo = &#123;</div><div class="line">                        guest: guest,</div><div class="line">                        time: dateFormat(new Date(), &quot;HH:MM:ss&quot;)</div><div class="line">                    &#125;;</div><div class="line"></div><div class="line">                if (ws.readyState === WebSocket.OPEN) &#123;</div><div class="line"></div><div class="line">                    // 发，送</div><div class="line">                    ws.send(JSON.stringify(guestInfo));</div><div class="line"></div><div class="line">                    // 用随机来“装”得更像不定时推送一些</div><div class="line">                    setTimeout(function() &#123;</div><div class="line">                        sendGuestInfo(ws);</div><div class="line">                    &#125;, (Math.random() * 5 + 3) * 1000);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>这个例子使用了姓名生成站点 uinames 的API服务，来生成 {guest: &quot;人名&quot;, time: &quot;15:26:01&quot;} 这样的数据。函数 sendGuestInfo() 会不定时执行，并把包含姓名和时间的信息通过 send() 方法发送给客户端。另外，注意 send() 方法需要以字符串形式来发送json数据。
-</code></pre><p>这就像是服务器自己在做一些事，然后在需要的时候会通知客户端一些信息。</p>
-<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>客户端我们使用原生javascript来完成（仅支持WebSocket的浏览器）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">if(&quot;WebSocket&quot; in window) &#123;</div><div class="line">	alert(&quot;您的浏览器支持 WebSocket!&quot;);</div><div class="line">	var socket = new WebSocket(&quot;ws://localhost:8080/guest&quot;);</div><div class="line"></div><div class="line">	socket.onopen = function(openEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket conntected.&quot;);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onmessage = function(messageEvent) &#123;</div><div class="line">	    var data = messageEvent.data,</div><div class="line">	        dataObject = JSON.parse(data);</div><div class="line">	    console.log(&quot;Guest at &quot; + dataObject.time + &quot;: &quot; + dataObject.guest);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onerror = function(errorEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket error: &quot;, errorEvent);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onclose = function(closeEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket closed.&quot;);</div><div class="line">	&#125;;</div><div class="line">&#125; else &#123;</div><div class="line">	// 浏览器不支持 WebSocket</div><div class="line">	alert(&quot;您的浏览器不支持 WebSocket!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>WebSocket的URL格式是 ws:// 与 wss:// 。因此，需要注意下URL地址的写法，这也包括注意WebSocket服务器端的路径（如这里的 /guest ）等信息。因为是本地的示例所以这里是 localhost 。</p>
-<p>客户端代码的流程很简单：创建 WebSocket 对象，然后指定 onopen 、 onmessage 等事件的回调即可。其中 onmessage 是客户端与服务器端通过WebSocket通信的关键事件，想要在收到服务器通知后做点什么，写在 onmessage 事件的回调函数里就好了。</p>
-<h2 id="效果及分析"><a href="#效果及分析" class="headerlink" title="效果及分析"></a>效果及分析</h2><p>通过 node server （假定服务器端的文件名为 server.js ）启动WebSocket服务器后，用浏览器打开一个引入了前面客户端代码的html（直接文件路径 file:/// 就可以），就可以得到像这样的结果：<br><a href="https://lee-dragon.github.io/images/webresult.gif" title="效果图" target="_blank" rel="external">!未加载</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> front-end </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> http </tag>
-            
-            <tag> websocket </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[小总结]]></title>
-      <url>/2017/02/15/tips/</url>
-      <content type="html"><![CDATA[<h2 id="网站缩略图"><a href="#网站缩略图" class="headerlink" title="网站缩略图"></a>网站缩略图</h2><p>在head标签里写一个link</p>
-<blockquote>
-<p>一般只要在根目录放置一个favicon.ico文件既可，因为浏览器不管你有没有这个文件都会请求这个地址，有的话就显示，没有的话就不显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;shortcut icon&quot;  href=&quot;favicon.ico&quot;&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="文字…"><a href="#文字…" class="headerlink" title="文字…"></a>文字…</h2><pre><code>overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-</code></pre><h2 id="input-textarea里直接取值类似于数据绑定"><a href="#input-textarea里直接取值类似于数据绑定" class="headerlink" title="input/textarea里直接取值类似于数据绑定"></a>input/textarea里直接取值类似于数据绑定</h2><pre><code>onchange=&quot;$(el)[0].innerText=this.value;&quot;
-</code></pre><h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><pre><code>Math.round(X)=Math.floor(X+0.5);
-</code></pre><h2 id="tap"><a href="#tap" class="headerlink" title="tap"></a>tap</h2><blockquote>
-<p>jquery的tap事件是在1.7+版本之上支持</p>
-</blockquote>
-<h2 id="h5"><a href="#h5" class="headerlink" title="h5"></a>h5</h2><h3 id="input-type-range-属性是在IE6、7、8并不支持"><a href="#input-type-range-属性是在IE6、7、8并不支持" class="headerlink" title="input type=range  属性是在IE6、7、8并不支持"></a>input type=range  属性是在IE6、7、8并不支持</h3><h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>IE9+  当前， “video元素支持三种视频格式： MP4, WebM, 和 Ogg:”</p>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>IE9+  目前, audio元素支持三种音频格式文件: MP3, Wav, 和 Ogg:</p>
-<h3 id="新的input类型"><a href="#新的input类型" class="headerlink" title="新的input类型"></a>新的input类型</h3><p> color date datetime datetime-local email month number range search tel time url week</p>
-<h3 id="新的语义标签"><a href="#新的语义标签" class="headerlink" title="新的语义标签"></a>新的语义标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt; &lt;nav&gt; &lt;section&gt; &lt;article&gt; &lt;aside&gt; &lt;figcaption&gt; &lt;figure&gt; &lt;footer&gt;</div></pre></td></tr></table></figure>
-<h3 id="应用程序缓存（Application-Cache）"><a href="#应用程序缓存（Application-Cache）" class="headerlink" title="应用程序缓存（Application Cache）"></a>应用程序缓存（Application Cache）</h3><h3 id="HTML5-引入了应用程序缓存，这意味着-web-应用可进行缓存，并可在没有因特网连接时进行访问。"><a href="#HTML5-引入了应用程序缓存，这意味着-web-应用可进行缓存，并可在没有因特网连接时进行访问。" class="headerlink" title="HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。"></a>HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。</h3><p>应用程序缓存为应用带来三个优势：</p>
-<ol>
-<li>离线浏览 - 用户可在应用离线时使用它们</li>
-<li>速度 - 已缓存资源加载得更快</li>
-<li>减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源</li>
-</ol>
-<blockquote>
-<p>   Internet Explorer 10, Firefox, Chrome, Safari 和 Opera 支持应用程序缓存.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html manifest=&quot;demo.appcache&quot;&gt;</div><div class="line">...</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<pre><code>请注意，manifest 文件需要配置正确的 MIME-type，即 &quot;text/cache-manifest&quot;。必须在 web 服务器上进行配置。
-</code></pre><h3 id="Manifest-文件"><a href="#Manifest-文件" class="headerlink" title="Manifest 文件"></a>Manifest 文件</h3><pre><code>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。
-manifest 文件可分为三个部分：
-CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
-NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
-FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）
-</code></pre><h3 id="实例-完整的-Manifest-文件"><a href="#实例-完整的-Manifest-文件" class="headerlink" title="实例 - 完整的 Manifest 文件"></a>实例 - 完整的 Manifest 文件</h3><pre><code>CACHE MANIFEST
-# 2012-02-21 v1.0.0
-/theme.css
-/logo.gif
-/main.js
-
-NETWORK:
-login.php
-
-FALLBACK:
-/html/ /offline.html(注意: 第一个 URI 是资源，第二个是替补。)
-</code></pre><h3 id="关于应用程序缓存的说明"><a href="#关于应用程序缓存的说明" class="headerlink" title="关于应用程序缓存的说明"></a>关于应用程序缓存的说明</h3><blockquote>
-<p>请留心缓存的内容。<br>一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。<br>注意: 浏览器对缓存数据的容量限制可能不太一样（某些浏览器设置的限制是每个站点 5MB）。</p>
-</blockquote>
-<h2 id="移动端click-事件的300ms延迟"><a href="#移动端click-事件的300ms延迟" class="headerlink" title="移动端click 事件的300ms延迟"></a>移动端click 事件的300ms延迟</h2><blockquote>
-<p>假定这么一个场景。用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。</p>
-</blockquote>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> h5 </tag>
-            
-            <tag> tap </tag>
-            
-            <tag> click延迟 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[小总结2]]></title>
-      <url>/2017/02/15/%E5%B0%8F%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<h2 id="随机图片"><a href="#随机图片" class="headerlink" title="随机图片"></a>随机图片</h2><p><a href="https://unsplash.it/300/300/?random" target="_blank" rel="external">https://unsplash.it/300/300/?random</a></p>
-<h2 id="HTML页面上的版权符号©"><a href="#HTML页面上的版权符号©" class="headerlink" title="HTML页面上的版权符号©"></a>HTML页面上的版权符号©</h2><p>复制“©”，后设置属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">font-family</span><span class="selector-pseudo">:Arial</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="h5中页面拨打电话的方式"><a href="#h5中页面拨打电话的方式" class="headerlink" title="h5中页面拨打电话的方式"></a>h5中页面拨打电话的方式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tel:18688888888"</span>&gt;</span>拨号<span class="tag">&lt;/<span class="name">a</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"sms:18688888888"</span>&gt;</span>发短信<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>##　CSS3 calc<br>IE8+</p>
-<h2 id="animition-CSS3动画"><a href="#animition-CSS3动画" class="headerlink" title="animition     CSS3动画"></a>animition     CSS3动画</h2><p>IE10+<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">keyframes</span> myfirst</div><div class="line">&#123;</div><div class="line"><span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</div><div class="line"><span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> myfirst /* Firefox */</div><div class="line">&#123;</div><div class="line"><span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</div><div class="line"><span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> myfirst /* Safari 和 Chrome */</div><div class="line">&#123;</div><div class="line"><span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</div><div class="line"><span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-<span class="keyword">o</span>-<span class="keyword">keyframes</span> myfirst /* Opera */</div><div class="line">&#123;</div><div class="line"><span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</div><div class="line"><span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">div</span></div><div class="line">&#123;</div><div class="line"><span class="attribute">animation</span>: myfirst <span class="number">5s</span>;</div><div class="line"><span class="attribute">-moz-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Firefox */</span></div><div class="line"><span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Safari 和 Chrome */</span></div><div class="line"><span class="attribute">-o-animation</span>: myfirst <span class="number">5s</span>;	<span class="comment">/* Opera */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> © </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[利用hexo和GitHub搭建一个blog]]></title>
-      <url>/2017/02/14/%E5%88%A9%E7%94%A8hexo%E5%92%8CGitHub%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAblog/</url>
-      <content type="html"><![CDATA[<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h2><p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github和Heroku上，引用Hexo作者 @tommy351 的话：</p>
-<p>快速、简单且功能强大的 Node.js 博客框架。A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-<a id="more"></a>
-<h2 id="需要安装的"><a href="#需要安装的" class="headerlink" title="需要安装的"></a>需要安装的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node  npm  hexo</div><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-<blockquote>
-<p>建议安装2.X版本的，不然在hexo deploy后有兼容问题的报错<br>降级: cnpm install hexo@2.8.3 -g</p>
-</blockquote>
-<h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><pre><code>hexo version
-</code></pre><h2 id="查看命令帮助"><a href="#查看命令帮助" class="headerlink" title="查看命令帮助"></a>查看命令帮助</h2><pre><code>hexo help
-</code></pre><p>1、 help ： 查看帮助信息</p>
-<p>2、 init [文件夹名] ： 创建一个hexo项目，不指定文件夹名，则在当前目录创建<br>3、 version ： 查看hexo的版本<br>4、 –config config-path ：指定配置文件，代替默认的_config.yml<br>5、 –cwd cwd-path ：自定义当前工作目录<br>5、 –debug ：调试模式，输出所有日志信息<br>6、 –safe ：安全模式，禁用所有的插件和脚本<br>7、 –silent ：无日志输出模式</p>
-<h2 id="安装好后，我们就可以使用Hexo创建项目了"><a href="#安装好后，我们就可以使用Hexo创建项目了" class="headerlink" title="安装好后，我们就可以使用Hexo创建项目了"></a>安装好后，我们就可以使用Hexo创建项目了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo init hexo-demo</div><div class="line">cd hexo-demo</div><div class="line">hexo server == hexo s</div><div class="line">这时端口4000被打开了</div></pre></td></tr></table></figure>
-<ol>
-<li>在浏览器地址栏中输入localhost:4000/<br>Hexo的默认界面，Hexo2.4+后采用的默认主题是 Landscape</li>
-<li>Hexo的配置<br>1、 scaffolds ：模板文件夹，新建文章时，Hexo 会根据 scaffold 来建立文件。Hexo 有三种默认布局： post 、 page 和 draft ，它们分别对应不同的路径。新建文件的默认布局是 post ，可以在配置文件中更改布局。用 draft 布局生成的文件会被保存到 source/_drafts 文件夹。<br>2、 source ：资源文件夹是存放用户资源的地方。<br>3、 source/_post ：文件箱。（低版本的hexo还会存在一个 _draft ，这是草稿箱）除 <em>posts 文件夹之外，开头命名为 </em> (下划线)的文件/ 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去<br>4、 themes ：主题 文件夹。Hexo 会根据主题来生成静态页面<br>5、 themes/landscape ：默认的皮肤文件夹<br>6、 _config.yml ：全局的配置文件，每次更改要重启服务。<br>低版本的Hexo还会生成scripts文件夹，里面用于保存扩展Hexo的脚本文件。</li>
-<li>修改全局配置时注意：<br><em>注意缩进</em>，在冒号：后有一个<strong>空格</strong><br><em>主题安装：</em><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernist --&gt;</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>安装完成后，打开hexo_config.yml，修改主题为next<strong>（注意冒号后边留空格）</strong><br>在themes/next,编辑主题配置文件_config.yml：mist</p>
-<p><strong>记得命令行里清除一下缓存</strong><br><code>hexo clean</code></p>
-<ol>
-<li>基本使用<blockquote>
-<p>通过new命令新建一篇文章</p>
-</blockquote>
-</li>
-</ol>
-<p>hexo new “文章标题”<br>Hexo提供的layout在 scaffolds 目录下，也可以在此目录下自建layout文件。新建的文件则会保存到 source/_post 目录下。<br>在编辑器里编辑文本<br>hexo s</p>
-<p>发表的文章会全部显示，如果文章很长，就只要显示文章的摘要就行了。在需要显示摘要的地方添加如下代码即可：<br>i.以上是摘要<br>ii.<!--more--><br>iii.以下是余下全文</p>
-<p>这个文字可以更改，在主题的配置文件( themes/主题文件夹/_config.yml )中，找到 Content ：<br>i.# Content<br>ii.excerpt_link: Read More #可以更改成想要显示的文字<br>iii.fancybox: true</p>
-<blockquote>
-<p>部署<br>在部署之前，需要通过命令把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的：<br><code>hexo generate</code>==hexo g<br>在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。</p>
-<p>发布<br>将生成的public里的文件全部上传到GitHub里新建的自己的blog仓库</p>
-</blockquote>
-<h2 id="关于页和标签页和分类页"><a href="#关于页和标签页和分类页" class="headerlink" title="关于页和标签页和分类页"></a>关于页和标签页和分类页</h2><p>两种实现方式</p>
-<ol>
-<li><p>在source文件夹下新建about文件夹，在about文件夹下新建index.md </p>
-</li>
-<li><p>直接使用hexo new page 命令,在自动生成的index.md里对应的加上type： “tags/categories”</p>
-</li>
-</ol>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> blog </tag>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[跨域]]></title>
-      <url>/2017/02/14/%E8%B7%A8%E5%9F%9F/</url>
-      <content type="html"><![CDATA[<h1 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h1><p>只要是协议(http/https),域名,端口有任何一个不同，都被当做是不同的域。<br><img src="https://lee-dragon.github.io/images/kuayu.png" alt="图片未加载！" title="SSH"></p>
-<p><strong> 对于端口和协议的不同，只能通过后台来解决。 </strong></p>
-<h1 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h1><ul>
-<li>其限制之一就是第一种方法中我们说的不能通过ajax的方法去请求不同源中的文档。 </li>
-<li>它的第二个限制是浏览器中不同域的框架之间是不能进行js的交互操作的。</li>
-</ul>
-<h1 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h1><blockquote>
-<p>html5新增的一项标准功能<br>因此<strong> IE10 </strong>以下版本的浏览器是不支持的</p>
-</blockquote>
-<p>只有当目标页面的response中，包含了Access-Control-Allow-Origin这个header，并且它的值里有我们自己的域名时，浏览器才允许我们拿到他页面的数据进行下一步处理。如：</p>
-<blockquote>
-<p>Access-Control-Allow-Origin: <a href="http://run.jsbin.io" target="_blank" rel="external">http://run.jsbin.io</a></p>
-<p>如果他的值设为*，则表示谁都可以用</p>
-</blockquote>
-<h1 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h1><p>JSONP由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数，而数据就是传入回调函数中的JSON数据。</p>
-<blockquote>
-<p>在js中，我们直接用XMLHttpRequest请求不同域上的数据时，是不可以的。但是，在页面上引入不同域上的js脚本文件却是可以的，jsonp正是利用这个特性来实现的。 例如：</p>
-</blockquote>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-function dosomething(jsondata){
-   //处理获得的json数据
-}
-&lt;/script&gt;
-&lt;script src=&quot;http://example.com/data.php?callback=dosomething&quot;&gt;&lt;/script&gt; 
-</code></pre><h1 id="使用window-name来进行跨域"><a href="#使用window-name来进行跨域" class="headerlink" title="使用window.name来进行跨域"></a>使用window.name来进行跨域</h1><p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。</p>
-<p>比如：有一个页面a.html,它里面有这样的代码<br>    <img src="https://lee-dragon.github.io/images/a.jpg" alt="&#39;图片未加载&#39;" title="window.name/a.html"><br>再看看b.html页面的代码<br>    <code>window.name=&#39;XXX&#39;</code></p>
-]]></content>
-      
-        <categories>
-            
-            <category> front-end </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> ajax </tag>
-            
-            <tag> jsonp </tag>
-            
-            <tag> core </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[ECMA6]]></title>
-      <url>/2017/02/13/ECMA6/</url>
-      <content type="html"><![CDATA[<h1 id="ECMA简介"><a href="#ECMA简介" class="headerlink" title="ECMA简介"></a>ECMA简介</h1><hr>
-<blockquote>
-<p>ECMA6是javascript语言的下一代标准，已于2015年6月正式发布。其目标是使javascript语言可用于编写复杂的大型应用程序，成为企业级开发语言。 标准的指定者计划，以后每年发布一次标准，使用年份作为版本号。ES6是在2015年发布的，所以又称ECMAScript2015，2016年英国会发布小幅度修订版的ES2016。</p>
-</blockquote>
-<h1 id="Babel转码器"><a href="#Babel转码器" class="headerlink" title="Babel转码器"></a>Babel转码器</h1><p><img src="https://lee-dragon.github.io/images/babel.png" alt="图片未加载！" title="Babel"><br>Babel是一个广为使用的ES6转码器，可以将ES6代码转换为ES5代码，从而在浏览器或其他环节执行。这意味着，你可以用ES6的方式编写程序，而又不用担心现有环境是否支持。下面是一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//转码前</div><div class="line">input.map(item =&gt; item +1)</div><div class="line">//转码后</div><div class="line">&gt;input.map(function(item)&#123;</div><div class="line">    return item+1;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>上面的原始代码用了箭头函数，这个特性尚未得到广泛的支持，babel将其转换为普通函数后，就能在现有的javascript环境中执行了。</p>
-<h1 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h1><hr>
-<h2 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h2><h3 id="let命令介绍"><a href="#let命令介绍" class="headerlink" title="let命令介绍"></a>let命令介绍</h3><h4 id="let与var"><a href="#let与var" class="headerlink" title="let与var"></a>let与var</h4><p>ES6新增了let命令，用来声明变量。用法与var类似，用于声明变量。let声明的变量只会在let所在的块级作用域中生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let num1 = 10;</div><div class="line">    var num2 = 20;</div><div class="line">    alert(num1); // 10</div><div class="line">&#125; </div><div class="line">alert(num1); //undefined num1只会在其所在代码块作用域中生效</div><div class="line">alert(num2); //20</div></pre></td></tr></table></figure>
-<h4 id="JavaScript中作用域"><a href="#JavaScript中作用域" class="headerlink" title="JavaScript中作用域"></a>JavaScript中作用域</h4><p>javascript作用域分为全局作用域、函数作用域，还有块级作用域。<br>函数作用域与块级作用域的区别是什么？</p>
-<ul>
-<li>函数作用域：变量在定义的函数内以及嵌套的子函数内可访问</li>
-<li>块级作用域：{}就属于块级作用域,变量在离开定义的块级作用域后马上被收回<br>有了块级作用域后函数自调用不再需要了，自调用解决的问题就是我们需要一个创建一个独立作用域</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//自调用函数</div><div class="line">(function()&#123;</div><div class="line">    var a = 100;</div><div class="line">    alert(a)//100</div><div class="line">&#125;)</div><div class="line">alert(a); // error a is not defined</div><div class="line"></div><div class="line">//块级作用域</div><div class="line">&#123;</div><div class="line">    let a = 10;</div><div class="line">    alert(a);// 10</div><div class="line">&#125;</div><div class="line">alert(a);// error a is not defined</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="for循环中使用let定义变化值"><a href="#for循环中使用let定义变化值" class="headerlink" title="for循环中使用let定义变化值"></a>for循环中使用let定义变化值</h3><p>在这个案例中通过let声明变量i，i只会在循环体内生效，循环体外访问报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(let i =0;i&lt;10;i++)&#123;</div><div class="line">    console.log(i); // 0 ~ 9</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(i); // undefined</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="for循环中变量i值问题"><a href="#for循环中变量i值问题" class="headerlink" title="for循环中变量i值问题"></a>for循环中变量i值问题</h3><p>var方式声明循环变量i： 通过var声明变量i是一个全局变量，所以最后我们调用函数，访问i的时候得到的结果就是i最后的结果10。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr =[];</div><div class="line">for(let i=0;i&lt;10;i++)&#123;</div><div class="line">    arr[i] = function()&#123;</div><div class="line">        alert(i);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">arr[0]();// 0</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="使用let声明注意问题"><a href="#使用let声明注意问题" class="headerlink" title="使用let声明注意问题"></a>使用let声明注意问题</h3><h4 id="不存在变量提升问题"><a href="#不存在变量提升问题" class="headerlink" title="不存在变量提升问题"></a>不存在变量提升问题</h4><p>通过var方式声明变量的时候存在变量提升问题,通过let方式声明的变量不存在变量提升问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(num);  //var声明 undefined</div><div class="line">alert(name); //报错</div><div class="line">var num = 10;</div><div class="line">let name  = &apos;Acker&apos;</div></pre></td></tr></table></figure>
-<h4 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h4><p>let不允许在相同作用域中声明相同变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let num = 10;</div><div class="line">    let num = 1000; //报错</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>let在函数中声明变量不能与形参相同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function get(val)&#123;</div><div class="line">    let val = 100; //报错</div><div class="line">    //Identifier &apos;val&apos; has already been declared</div><div class="line">    //标识符 val 已被占用</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="块级作用域的嵌套"><a href="#块级作用域的嵌套" class="headerlink" title="块级作用域的嵌套"></a>块级作用域的嵌套</h4><p>块级作用域嵌套后在子作用域中可以访问到父级块中的变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let num = 100;</div><div class="line">    &#123;</div><div class="line">        console.log(num); //100</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>块级作用域中声明的变量、在块级作用域结束后销毁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    let num = 100;</div><div class="line">    &#123;</div><div class="line">        let num = 200;</div><div class="line">        console.log(num);//200</div><div class="line">    &#125;</div><div class="line">    console.log(num)//100</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="const命令"><a href="#const命令" class="headerlink" title="const命令"></a>const命令</h2><p><code>let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</code>  这些是ES6最常用的几个语法，基本上学会它们，我们就可以走遍天下都不怕啦！</p>
-<p>###const命令介绍</p>
-<p>const是用来声明一个只读的常量。只要声明后，常量的值就不能改变，否则报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const PI = 3.1415926;</div><div class="line">console.log(PI)</div><div class="line">PI = 3; //error  Assignment to constant variable  常量不能赋值</div></pre></td></tr></table></figure>
-<p><em>注意：conset因为声明后值不能改变，因此声明的常量时必须赋值。 如下:</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const num; //Missing initializer in const declaration</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="const作用域"><a href="#const作用域" class="headerlink" title="const作用域"></a>const作用域</h3><p>const命令也是有作用域的只有在当前声明的作用域中生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//函数作用域</div><div class="line">(function()&#123;</div><div class="line">    const val = 100;</div><div class="line">    alert(val)</div><div class="line">&#125;)();</div><div class="line">alert(val);</div><div class="line"></div><div class="line">//块级作用域</div><div class="line">&#123;</div><div class="line">    const port = 80;</div><div class="line">    alert(port)</div><div class="line">&#125;</div><div class="line">alert(port)</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="const不存在变量提升"><a href="#const不存在变量提升" class="headerlink" title="const不存在变量提升"></a>const不存在变量提升</h3><p>const命令声明变量，只能在声明之后访问。不存在变量提升。<br>[ 不会预解析const，因此const只有执行的时候才会在内存中创建该常量 ]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(val); //error  val is not defined</div><div class="line">const val = 100;</div></pre></td></tr></table></figure></p>
-<h3 id="const不能重复声明"><a href="#const不能重复声明" class="headerlink" title="const不能重复声明"></a>const不能重复声明</h3><p>只要通过var、let、const声明的变量，不能再次声明，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//var const</div><div class="line">var num = 100;</div><div class="line">const num = 200; //error  Identifier &apos;num&apos; has already been declared 标识符“num”已被声明</div><div class="line"></div><div class="line">//let const</div><div class="line">let val = 1;</div><div class="line">const val = 20; //error Identifier &apos;val&apos; has already been declared 标识符“val”已被声明</div><div class="line"></div><div class="line">//var let</div><div class="line">var n = 10;</div><div class="line">let n =300; //error Identifier &apos;val&apos; has already been declared 标识符“n”已被声明</div></pre></td></tr></table></figure>
-<p>###const命令与变量引用类型</p>
-<p>const声明的变量对于引用类型的数据，只是指向其地址，不会指向数据。因此，const只能保证指向内存地址不变化，不能保证变量数据不变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//Obect</div><div class="line">const foo = &#123;</div><div class="line">    name:&apos;张三&apos;,</div><div class="line">    age:29</div><div class="line">&#125;</div><div class="line">foo.name = &quot;lisi&quot;; //修改对象foo的name值 没有报错</div><div class="line">console.log(foo);  //&#123;name: &quot;lisi&quot;, age: 29&#125;</div><div class="line">alert(foo.name);   //lisi</div><div class="line"></div><div class="line">//Array</div><div class="line">const nums = [];</div><div class="line">nums.push(10);//success</div><div class="line">nums.push(20);//success</div><div class="line">console.log(nums); // [10,20]</div><div class="line">nums = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]; //error</div></pre></td></tr></table></figure></p>
-<p>保证引用类型数据不变</p>
-<p>当我们要保证对象的数据不能修改，我们可以使用Object.freeze()方法来确保对象的数据不变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const foo = Object.freeze(&#123;name:&apos;zhangsan&apos;,age:29&#125;);</div><div class="line">foo.name = &apos;lisi&apos;; // 未报错</div><div class="line">console.log(foo); //修改未生效 &#123;name: &quot;zhangsan&quot;, age: 29&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="#变量的解构赋值"></a>#变量的解构赋值</h2><p>##解构赋值介绍<br>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构(Destructuring)<br>之前为变量赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 10;</div><div class="line">var b = 20;</div><div class="line">var c = 30;</div></pre></td></tr></table></figure></p>
-<p>ES6允许写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var [a,b,c] = [10,20,30];</div><div class="line">alert(a); //10</div><div class="line">alert(c); //30</div></pre></td></tr></table></figure></p>
-<p>上面的代码表示可以从数组中提取值，按照对应的位置，对变量赋值。</p>
-<p>本质上，这种写法属于‘模式匹配’,只要等号两边的模式相同，左边的变量就会被赋予对应的值。</p>
-<p>##数组的解构赋值<br>变量的赋值，ES6允许写成下面这种形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注/let [a,b,c] = [1,2,3];</div><div class="line">alert(a);//1</div><div class="line">alert(b);//2</div><div class="line">alert(c);//3</div></pre></td></tr></table></figure>
-<p>可以从数组中提取值，按照变量对应的位置，对变量赋值。</p>
-<p>本质上,这种写法属于“模式匹配”,只要等号两边的模式相同，左边的变量就会被赋值对应的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let [num,[val,str],blo] = [100,[&apos;acker&apos;,&apos;hello&apos;],true];</div><div class="line">alert(num);//100</div><div class="line">alert(val); //acker</div></pre></td></tr></table></figure></p>
-]]></content>
-      
-        <categories>
-            
-            <category> front-end </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> let </tag>
-            
-            <tag> const </tag>
-            
-            <tag> ECMA6 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[windows安装Ruby环境]]></title>
-      <url>/2017/02/13/ruby-sass/</url>
-      <content type="html"><![CDATA[<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://rubyinstaller.org/downloads/</div></pre></td></tr></table></figure>
-<h1 id="安装ruby"><a href="#安装ruby" class="headerlink" title="安装ruby"></a>安装ruby</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -v</div></pre></td></tr></table></figure>
-<blockquote>
-<p>win环境的安装很傻瓜，一路next就行了，不过记得在选择目录的时候，有个add to PATH选项一定要勾上，这样就不用我们手动配置环境变量了。</p>
-</blockquote>
-<h1 id="安装sass"><a href="#安装sass" class="headerlink" title="安装sass"></a>安装sass</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem install sass</div><div class="line">gem install compass</div></pre></td></tr></table></figure>
-<h1 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h1><ul>
-<li>新建一个文件test,并cd到test下</li>
-<li><p>然后我们在test中建一个文件夹用来存放css样式 ， 用命令 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compass create style</div></pre></td></tr></table></figure>
-</li>
-<li><p>cd style</p>
-</li>
-<li>然后就可以在style/sass文件下写.scss文件了</li>
-<li>生成的.css在style/stylesheets里</li>
-</ul>
-<h1 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h1><h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
-<li><p>sass文件有两种格式， 一种是 scss后缀的， 一种是sass后缀的。这个以后再来看。推荐使用的是scss格式的。</p>
-</li>
-<li><p>在我们的项目中，我们编写 scss文件，通过命令来编译成css ,如下：<br>格式为： sass 原scss文件:目标文件css<br>示例为：sass hello.scss:hi.css</p>
-</li>
-<li><p>这样就把scss文件编译成了css文件。</p>
-</li>
-</ul>
-<h3 id="编译时控制不同格式的输出"><a href="#编译时控制不同格式的输出" class="headerlink" title="编译时控制不同格式的输出"></a>编译时控制不同格式的输出</h3><ul>
-<li><p>有多种不同的格式：<br>nested (嵌套 这个是默认的，看着不舒服) ；<br>expanded (展开 看着最顺眼) ；<br>compact (紧凑) ；<br>comparessd(压缩 压缩成一行)</p>
-</li>
-<li><p>我们通过下面的命令来选择输出不同的格式 ：<br>sass hello.scss:hi.css –style expanded<br>sass hello.scss:hi.css –style compact<br>sass hello.scss:hi.css –style compressed</p>
-</li>
-</ul>
-<h2 id="webstorm配置"><a href="#webstorm配置" class="headerlink" title="webstorm配置"></a>webstorm配置</h2><p>setting–tools–file watchers–prgrams(C:\Ruby23-x64\bin\scss.bat)</p>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[使用命令行和github交互]]></title>
-      <url>/2017/02/13/%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8Cgithub%E4%BA%A4%E4%BA%92/</url>
-      <content type="html"><![CDATA[<h2>全局配置</h2>
-
-<figure class="highlight plain" style="width:100%;height:100px;"><ul><li>git config –global user.name “your name”</li><li>git config –global user.email “your email”</li><li>git config –global push.default simple</li></ul></figure><br><h2>clone一个已有的仓库做开发</h2><br><figure class="highlight plain" style="width:100%;height:150px;"><ul><li>git clone <a href="https://github.com/nate-river/bird.git(你的仓库地址" target="_blank" rel="external">https://github.com/nate-river/bird.git(你的仓库地址</a>) blog(随意命个名)</li><li>git –help</li><li>git status</li><li>git add *</li><li>git status</li><li>git push origin master</li></ul></figure><br><blockquote><p>git push 会要求用户名和密码</p><p>注意要多使用git status 查看状态  和自己目前所在的分支</p><p>git clone 之后在blog文件里新建一个.ignore文件内容为.idea;后cd到blog，将需要上传的文件放进去后，进行之后的操作步骤</p></blockquote><br><h2>管理分支</h2><br><figure class="highlight plain" style="width:100%;height:120px;"><ul><li>git branch gh-pages</li><li>git checkout gh-pages</li><li>git merge master</li><li>git push –set-upstream origin gh-pages</li></ul></figure>
-
-
-
-
-
-
-]]></content>
-      
-        <categories>
-            
-            <category> front-end </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> github </tag>
-            
-            <tag> 命令行 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>/2017/02/12/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[SSH]]></title>
-      <url>/2017/02/09/SSH/</url>
-      <content type="html"><![CDATA[<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>SSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。SSH客户端适用于多种平台。几乎所有UNIX平台-包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。</p>
-<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;bu.ru@qq.com&quot;</div><div class="line">git config --global user.name &quot;bruce-sha&quot;</div></pre></td></tr></table></figure>
-<h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot;</div></pre></td></tr></table></figure>
-<p>之后点击<strong>三次enter键</strong>，输出如下的代码<br><img src="https://lee-dragon.github.io/images/SSH.png" alt="图片未加载！" title="SSH"></p>
-<h2 id="Add-SSH-Key"><a href="#Add-SSH-Key" class="headerlink" title="Add SSH Key"></a>Add SSH Key</h2><ol>
-<li><p>上述命令若执行成功，会在 H:\git\myssh 目录下生成两个文件 id_rsa 和 id_rsa.pub ，最后两步：</p>
-</li>
-<li><p>用文本编辑器打开 ssh.pub 文件，拷贝其中的内容，将其添加到 Add SSH Key(在GitHub账户setting里)<br>将 id_rsa 和 id_rsa.pub 拷贝至你Git安装目录下的 .ssh 目录，如 H:\PortableGit-1.8.4.ssh</p>
-</li>
-</ol>
-<h2 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure>
-]]></content>
-      
-        <categories>
-            
-            <category> tutorial </category>
-            
-        </categories>
-        
-        
-    </entry>
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[hexo 打赏功能]]></title>
+    <url>%2F2017%2F05%2F23%2Fhexo-%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[打赏添加代码在 主题配置文件下添加一下代码123reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！wechatpay: /wx.pngalipay: /alipay.png Tips:‘/‘—-路径指向的是source文件夹(设置头像时一样) 添加文件在source文件夹下加入wx.png和alipay.png图片 上传音乐播放器选择音乐在网易云音乐里选择自己喜欢的歌曲，生成外链 添加代码将生成的frame标签添加到next/layout/_macro下的sidebar.swig第一个section结束标签前，大约117行的样子 上传]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[更换终端后博客的更新]]></title>
+    <url>%2F2017%2F05%2F23%2F%E6%9B%B4%E6%8D%A2%E7%BB%88%E7%AB%AF%E5%90%8E%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%2F</url>
+    <content type="text"><![CDATA[本人，李小白最近由于某些原因需要换地儿唯一让我惦记的就是我辛辛苦苦建起来的博客网上看了很多关于迁移的博客，好多种方法，什么hexo分支什么的试了一下 ，无果有句话说‘人如其名’，可能是这么高级的办法不太适合我最终决定采用最原始的，最笨的办法来，步骤如下： 在新电脑先生成一下ssh1ssh-keygen -t rsa -C "youremail@example.com" 登陆GitHub，打开「Settings」-&gt;「SSH and GPG keys」，然后点击「new SSH key」，填上任意Title，在Key文本框里粘贴公钥id_rsa.pub文件的内容（千万不要粘贴成私钥了！），最后点击「Add SSH Key」，你就应该看到已经添加的Key 新建一个空的文件夹cd到此文件夹，右键git bash安装安装hexo1npm install hexo --save 安装RSS插件1npm install hexo-generator-feed --save 安装Git插件1npm install hexo-deployer-git --save 建立站点地图—暂时还没用到1npm install hexo-generator-sitemap --save 完成后执行一下命令1hexo init 生成一些文件，用之前的source,theme,config.yml,scaffolds替换掉相应的文件 运行1hexo g &amp; hexo s 上传1hexo clean &amp; hexo g &amp; hexo d 若出现像deployer not found的错误，直接重新执行一下安装的命令后hexo d]]></content>
+      <tags>
+        <tag>博客迁移</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[免费的数据 API]]></title>
+    <url>%2F2017%2F05%2F22%2F%E5%85%8D%E8%B4%B9%E6%95%B0%E6%8D%AEAPI%2F</url>
+    <content type="text"><![CDATA[Sina股票数据接口 http://www.cnblogs.com/luluping/archive/2010/11/15/1877817.html12345678910http://hq.sinajs.cn/list=sh601006http://hq.sinajs.cn/list=s_sh000001//上证综合http://hq.sinajs.cn/list=s_sz399001//深圳成指//demo一个简单的JavaScript应用例子: script type=&quot;text/javascript&quot; src=&quot;http://hq.sinajs.cn/list=sh601006&quot; charset=&quot;gb2312&quot;&gt;/script&gt;/javascript&quot;&gt;var elements=hq_str_sh601006.split(&quot;,&quot;); ## 快递1001https://www.kuaidi100.com/openapi/ 手机归属地，使用方法如下：1https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号码 经纬度查询，使用方法如下：123http://gc.ditu.aliyun.com/geocoding?a=合肥 //返回数据 经度：lon，纬度：lat &#123;&quot;lon&quot;:117.22723,&quot;level&quot;:2,&quot;address&quot;:&quot;&quot;,&quot;cityName&quot;:&quot;&quot;,&quot;alevel&quot;:4,&quot;lat&quot;:31.82058&#125; 天气查询，返回json，使用方法如下：1http://api.map.baidu.com/telematics/v3/weather?location=城市名&amp;output=json&amp;ak=11ffd27d38deda622f51c9d314d46b17 qq空间音乐查询，使用方法如下：1234//返回xml数据 http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=查询的qq号码 //返回json数据 http://qzone-music.qq.com/fcg-bin/cgi_playlist_xml.fcg?uin=查询的qq号码&amp;json=1 聚合的免费API接口数据123456789101112131415161718192021222324手机号码归属地API接口：https://www.juhe.cn/docs/api/id/11历史上的今天API接口：https://www.juhe.cn/docs/api/id/63股票数据API接口：https://www.juhe.cn/docs/api/id/21全国WIFI接口：https://www.juhe.cn/docs/api/id/18星座运势接口：https://www.juhe.cn/docs/api/id/58黄金数据接口：https://www.juhe.cn/docs/api/id/29语音识别接口：https://www.juhe.cn/docs/api/id/134周公解梦接口：https://www.juhe.cn/docs/api/id/64天气预报API接口：https://www.juhe.cn/docs/api/id/73身份证查询API接口：https://www.juhe.cn/docs/api/id/38笑话大全API接口：https://www.juhe.cn/docs/api/id/95邮编查询接口：https://www.juhe.cn/docs/api/id/66老黄历接口：https://www.juhe.cn/docs/api/id/65网站安全检测接口：https://www.juhe.cn/docs/api/id/19手机固话来电显示接口：https://www.juhe.cn/docs/api/id/72基金财务数据接口：https://www.juhe.cn/docs/api/id/28成语词典接口：https://www.juhe.cn/docs/api/id/157新闻头条接口：https://www.juhe.cn/docs/api/id/235IP地址接口：https://www.juhe.cn/docs/api/id/1问答机器人接口：https://www.juhe.cn/docs/api/id/112汇率API接口：https://www.juhe.cn/docs/api/id/80电影票房接口：https://www.juhe.cn/docs/api/id/44万年历API接口：https://www.juhe.cn/docs/api/id/177NBA赛事接口：https://www.juhe.cn/docs/api/id/92]]></content>
+      <tags>
+        <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[document.ready]]></title>
+    <url>%2F2017%2F05%2F19%2Fdocument.ready%2F</url>
+    <content type="text"><![CDATA[## 12345678910111213//第一种$(function()&#123;&#125;)//第二种----等同于上一种$(document).ready(function()&#123;&#125;)//第三种//jQuery默认参数为document$().ready(function()&#123;&#125;)]]></content>
+      <tags>
+        <tag>ready</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则表达式]]></title>
+    <url>%2F2017%2F05%2F16%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[元字符/w\s:任何空白字符 [ \f\n\r\t\v]\d:数字 [0-9]\w:包括下划线的任何单词字符[A-Za-z0-9_] 反义/W\S:\D:[^0-9]\W: 限定符*分组()后向引用贪婪与懒惰? :非贪婪 eg. pppp reg:[p]+ res:pppp 一个 reg:[p]+? res:p p p p 四个 . :匹配除“\n”之外的任何单个字符。要匹配包括”\n”在内的任何字符，请使用像”(.|\n)”的模式。]]></content>
+      <tags>
+        <tag>正则</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[js实现prototype扩展的方法(字符串,日期,数组扩展)]]></title>
+    <url>%2F2017%2F05%2F12%2Fjs%E5%AE%9E%E7%8E%B0prototype%E6%89%A9%E5%B1%95%E7%9A%84%E6%96%B9%E6%B3%95(%E5%AD%97%E7%AC%A6%E4%B8%B2%2C%E6%97%A5%E6%9C%9F%2C%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95)%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196String.prototype.isEmpty = function () &#123; return !(/.?[^/s ]+/.test(this)); &#125; //检测字符串是否为空// 替换字符String.prototype.reserve = function(type) &#123; if (type == 'int') return this.replace(/^/d/g, ''); // 替换字符串中除了数字以外的所有字符 else if (type == 'en') return this.replace(/[^A-Za-z]/g, ''); // 替换字符串中除了英文以外的所有字符 else if (type == 'cn') return this.replace(/[^/u4e00-/u9fa5/uf900-/ufa2d]/g, ''); // 替换字符串中除了中文以外的所有字符 else return this;&#125;// 字符串反转String.prototype.reverse = function() &#123; return this.split('').reverse().join('');&#125;// 以一个中文算两个字符长度计算字符串的长度String.prototype.cnLength = function() &#123; return this.replace(/[^/x00-/xff]/g, ' * * ' ).length; &#125;// 替换字符串中的空格String.prototype.trim = function(type, char) &#123; var type = type ? type.toUpperCase() : ''; switch (type) &#123; case 'B' : // 替换所有欲清除字符,未定义char则默认为替换空格 return this.replace(char ? new RegExp(char, 'g') : /(/s+| )/g, ''); case 'O' : // 将两个以上的连续欲清除字符替换为一个,未定义char则默认为替换空格 return char ? this.replace(new RegExp(char + '&#123;2,&#125;', 'g'), char) : this.replace(/[/s ]&#123;2,&#125;/g, ' '); case 'L' : // 替换除左边欲清除字符,未定义char则默认为替换空格 return this.replace(char ? new RegExp('^(' + char + ') * ', 'g') : /^(/s| ) * /g, ''); case 'R' : // 替换除右边欲清除字符,未定义char则默认为替换空格 return this.replace(char ? new RegExp('(' + char + ') * $', 'g') : /(/s| ) * $/g, ''); default : // 替换除左右两边欲清除字符,未定义char则默认为替换空格 return this.replace(char ? new RegExp('^(' + char + ') * |(' + char + ') * $', 'g') : /(^/s * | )|( |/s * $)/g, ''); &#125;&#125;// 判断字符串是否是数字String.prototype.isNumer = function(flag) &#123; if (isNaN(this)) &#123;return false;&#125; switch (flag) &#123; case '+' : return /(^/+?|^/d?)/d * /.?/d+$/.test(this); // 正数 case '-' : return /^-/d * /.?/d+$/.test(this); // 负数 case 'i' : return /(^-?|^/+?|/d)/d+$/.test(this); // 整数 case '+i' : return /(^/d+$)|(^/+?/d+$)/.test(this); // 正整数 case '-i' : return /^-/d+$/.test(this); // 负整数 case 'f' : return /(^-?|^/+?|^/d?)/d * /./d+$/.test(this); // 浮点数 case '+f' : return /(^/+?|^/d?)/d * /./d+$/.test(this); // 正浮点数 case '-f' : return /^-/d * /./d$/.test(this); // 负浮点数 default : return true; // 缺省 &#125;&#125;// 仿PHP的str_padString.prototype.pad = function (input, length, type) &#123; if (!input) return this; if (!length || length &lt; 1) var length = 1; var input = Array(length + 1).join(input), value; var type = type ? type.toUpperCase() : ''; switch (type) &#123; case 'LEFT' : return input + this; case 'BOTH' : return input + this + input; default : return this + input; &#125;&#125;// 获取url对应参数的值String.prototype.getQuery = function(name) &#123; var reg = new RegExp('(^|&amp;)' + name + ' = ([^&amp;] * )(&amp;|$)'); var r = this.substr(this.indexOf('/?') + 1).match(reg); return r[2]?unescape(r[2]) : null;&#125;// 判断是否是日期格式(YYYY-MM-DD YYYY/MM/DD YYYY.MM.DD)String.prototype.isDate = function() &#123; result = this.match(/^(/d&#123;1, 4&#125;)(-|//|.)(/d&#123;1, 2&#125;)/2(/d&#123;1, 2&#125;)$/); if (!result) return false; var d = new Date(result[1], result[3]-1, result[4]) var str = d.getFullYear() + result[2] + (d.getMonth() + 1) + result[2] + d.getDate(); return this == str;&#125;// 将字符串转为日期String.prototype.toDate = function() &#123; var mDate = new Date(Date.parse(str)); if (isNaN(mDate)) &#123; var arr = this.split('-'); mDate = new Date(arr[0], arr[1], arr[2]); &#125; return mDate;&#125;// 格式化日期, new Date().format('yyyy/mm/dd')Date.prototype.format = function(format) &#123; var format = format.toLowerCase(); var type = &#123; 'm+' : this.getMonth()+1, 'd+' : this.getDate(), 'h+' : this.getHours(), 'i+' : this.getMinutes(), 's+' : this.getSeconds(), 'q+' : Math.floor((this.getMonth()+3)/3), 'ms' : this.getMilliseconds() &#125; if (/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length)); for(var k in type) &#123; if(new RegExp('('+ k +')').test(format)) &#123; format = format.replace(RegExp.$1, RegExp.$1.length==1 ? type[k] : ('00'+ type[k]).substr((''+ type[k]).length)); &#125; &#125; return format;&#125;// 添加日期，对应参数分别是：类型(y-年, q-季, m-月, w-周, d-日, h-时, i-分, s-秒)和增加的值Date.prototype.addDate = function(type, num) &#123; var type = type.toLowerCase(); switch (type) &#123; case 's' : return new Date.parse(Date.parse(this) + (1000 * num)); case 'i' : return new Date.parse(Date.parse(this) + (60000 * num)); case 'h' : return new Date(Date.parse(this) + (3600000 * num)); case 'd' : return new Date(Date.parse(this) + (86400000 * num)); case 'w' : return new Date(Date.parse(this) + ((86400000 * 7) * num)); case 'm' : return new Date(this.getFullYear(), (this.getMonth()) + num, this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds()); case 'q' : return new Date(this.getFullYear(), (this.getMonth()) + num * 3, this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds()); case 'y' : return new Date((this.getFullYear() + num), this.getMonth(), this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds()); &#125;&#125;// 计算两个日期Date.prototype.dateDiff = function(type, date) &#123; if (typeof date == 'string') date = date.toDate(); switch (type) &#123; case 's' : return parseInt((date - this) / 1000); case 'i' : return parseInt((date - this) / 60000); case 'h' : return parseInt((date - this) / 3600000); case 'd' : return parseInt((date - this) / 86400000); case 'w' : return parseInt((date - this) / (86400000 * 7)); case 'm' : return (date.getMonth() + 1) + ((date.getFullYear() - this.getFullYear()) * 12) - (this.getMonth() + 1); case 'y' : return date.getFullYear() - this.getFullYear(); &#125;&#125;// 判断对象是否是数组Object.prototype.isArray = function() &#123;return Object.prototype.toString.apply(this) == '[object Array]';&#125;// 判断数组内是否存在指定的元素Array.prototype.inArray = function (value) &#123; if (this.length &lt; 2) return this[0] == value; this.sort(function(a) &#123; return new RegExp('^' + value).test(a) ? -1 : 1; &#125;); return this[0] == value;&#125;// 在数组中查找元素并返回第一次出现的位置索引，未找到则返回-1。Array.prototype.indexOf = function(string) &#123; var len = this.length, i = 0; if (len &lt; 2) return this[0] == value ? 0 : -1; for (i; i &lt; len; i++) &#123; if (this[i] == string) return i; &#125; return -1;&#125;// [1, 2, 3].each(function(x) &#123;return x+1&#125;) 得到2, 3, 4Array.prototype.each = function(c) &#123; var ret = []; for(var i = 0; i &lt; this.length; i++) &#123; ret.push(c(this[i])); &#125; return ret;&#125;// [1, -1, 2].any(function(x) &#123;return x &lt; 0&#125;) 判断是否数组中有一个元素小于0Array.prototype.any = function(c) &#123; for(var i = 0; i &lt; this.length; i++) &#123; if (c(this)) return true; &#125; return false;&#125;// [1, 2, 3].all(function(x) &#123;return x &gt; 0&#125;) 判断是否数组中所有的元素都大于0Array.prototype.all = function(c) &#123; for(var i = 0; i &lt; this.length; i++) &#123; if (!c(this)) return false; &#125; return true;&#125;// 移除数组指定的元素,如果指定了limit,则仅移除limit个指定元素，如果省略limit或者其值为0，则所有指定元素都会被移除。Array.prototype.unset = function(string, limit) &#123; var len = this.length, i = 0, count = 0; for (i; i &lt; len; i++) &#123; if (this[i] == string) &#123; this.splice(i, 1); if (limit &amp;&amp; limit &gt; 0) &#123; count++; if (count == limit) break; &#125; &#125; &#125; return this;&#125;// 移除数组中重复的元素Array.prototype.unique = function() &#123; var arr = tmp = [], i, len = this.length; if (len &lt; 2) return this; for (i = 0; i &lt; len; i++) &#123; if (tmp[this[i]]) &#123; arr.push(this[i]); tmp[this[i]] = true; &#125; &#125; return arr;&#125;Array.prototype.min = function() &#123;return Math.min.apply(null, this)&#125; // 求数组中最小值Array.prototype.max = function() &#123;return Math.max.apply(null, this)&#125; // 求数组中最大值]]></content>
+      <tags>
+        <tag>prototype</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[设置不让浏览器缓存的方法]]></title>
+    <url>%2F2017%2F05%2F12%2F%E4%B8%8D%E8%AE%A9%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[## 在html头中加入以下3句话，可以防止大部分浏览器缓存123&lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt; &lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, must-revalidate&quot;&gt; &lt;meta http-equiv=&quot;expires&quot; content=&quot;Wed, 26 Feb 1997 08:21:57 GMT&quot;&gt; 或者js中加入类似下面的代码，让每次的链接都不一样12var s=Math.random()*10; document.getElementById("checkCodeImg").innerHTML="&lt;img src='/checkcode.jsp?rnd="+s+"'/&gt;";]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[编写jQuery插件]]></title>
+    <url>%2F2017%2F05%2F12%2F%E7%BC%96%E5%86%99jQuery%E6%8F%92%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[介绍根据《jQuery高级编程》中的描述，jQuery插件开发方式主要有三种： 1、通过$.extend()来扩展jQuery 2、通过$.fn 向jQuery添加新的方法 3、通过$.widget()应用jQuery UI的部件工厂方式创建 通常我们使用第二种方法来进行简单插件开发，说简单是相对于第三种方式。第三种方式是用来开发更高级jQuery部件的，该模式开发出来的部件带有很多jQuery内建的特性，比如插件的状态信息自动保存、各种关于插件的常用方法等，非常贴心，这里不细说。 而第一种方式又太简单，仅仅是在jQuery命名空间或者理解成在jQuery身上添加了一个静态方法而以。 jQuery.extend()123456789//var settings = &#123; validate: false, limit: 5, name: "foo" &#125;;var options = &#123; validate: true, name: "bar" &#125;;var empty=&#123;&#125;;1：jQuery.extend(settings, options);2：jQuery.extend(empty，settings, options);//输出结果1：settings == &#123; validate: true, limit: 5, name: "bar" &#125;2：settings == &#123; validate: true, limit: 5, name: "bar" &#125; empty == &#123; validate: true, limit: 5, name: "bar" &#125; ## jQuery.fn.extend123456789101112jQuery.fn.extend(&#123; check: function() &#123; return this.each(function() &#123; this.checked = true; &#125;); &#125;, uncheck: function() &#123; return this.each(function() &#123; this.checked = false; &#125;); &#125;&#125;);//结果$("input[type=checkbox]").check();$("input[type=radio]").uncheck(); ## 一个简单的示例,基本格式1234567$.fn.WO=function(se)&#123; this.css("color",se)//此处的this==jQuery选中的元素，this已经是一个jQuery集合 this.each(function()&#123; $(this).append(' ' + $(this).attr('href'));//此处的this为一个简单的dom对象，所以需要用$() &#125;);&#125;$("a").WO("green");//$("a")==插件中的this, 支持链式调用我们都知道jQuery一个非常优雅的特性是支持链式调用，选择好DOM元素后可以不断地调用其他方法。 要让插件不打破这种链式调用，只需return一下即可。123456$.fn.myPlugin = function()&#123; this.css('color','red'); return this.each(function()&#123; $(this).append(' ' + $(this).attr('href')); &#125;);&#125;; 让插件接收参数1234567891011121314151617//编写$.fn.myPlugin = function(options)&#123; var defaults=&#123; 'color' : 'red', 'fontSize' : '12px' &#125;; var settings=$.extend(defaults,options); return this.css(&#123; 'color' : settings.color, 'fontSize' : settings.fontSize &#125;);&#125;;//调用$('a').myPlugin(&#123; 'color': '#2C9929', 'fontSize':'32px'//未设置字体大小时，为默认值12px&#125;); 保护好默认参数 注意到上面代码调用extend时会将defaults的值改变，这样不好，因为它作为插件因有的一些东西应该维持原样，另外就是如果你在后续代码中还要使用这些默认值的话，当你再次访问它时它已经被用户传进来的参数更改了。一个好的做法是将一个新的空对象做为$.extend的第一个参数，defaults和用户传递的参数对象紧随其后，这样做的好处是所有值被合并到这个空对象上，保护了插件里面的默认值。1234567891011$.fn.myPlugin = function(options)&#123; var defaults=&#123; 'color' : 'red', 'fontSize' : '14px' &#125;; var settings=$.extend(&#123;&#125;,defaults,options); return this.css(&#123; 'color' : settings.color, 'fontSize' : settings.fontSize &#125;);&#125;;]]></content>
+      <tags>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[梦想]]></title>
+    <url>%2F2017%2F05%2F05%2FDreamWhere%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051穿上牛仔去流浪阳光打在脸上单车是我的翅膀 ---梦想上班了 骑上单车 吹着口哨下班喽吹着口哨骑上单车回家每天穿梭在城市的中间这是一个小城如果你也在这座小城的话你会发现一个男孩吹着口哨骑着单车在街道上风驰或者从你身边呼啸而过没错就是我...人生,其实就是一场旅程每个人的目的地都不同有的人,会慢行有的人,会狂奔每个人看见的风景都不同角度时间对于幸福的人,快痛苦的人,慢思绪乱了理想忘了朋友走了事业成了?天空灰了眼泪掉了爱情跑了我怎么了?我很幸福,我很满足,朋友都说我:你真是一个乐天的人.于是,我笑了!我很郁闷,我很迷茫,状态告诉我:你就是一个消极的人.于是,我不知所措了!]]></content>
+      <tags>
+        <tag>poetry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sass]]></title>
+    <url>%2F2017%2F04%2F28%2Fsass%2F</url>
+    <content type="text"><![CDATA[定义变量12345678// 将背景颜色值定义成变量$red : #FF0000;$orange : #FFA500;$yellow : #FFFF00;$green : #008000;$bluegreen : #00FFFF;$blue : #0000FF;$purple : #800080; 定义list12// 储存背景颜色$bgcolorlist: $red $orange $yellow $green $bluegreen $blue $purple; for循环123456// 使用SASS for循环语句为每一个li设置background-color@for $i from 1 to length($bgcolorlist)+1 &#123; #main-container ul li:nth-child(#&#123;$i&#125;) &#123; background-color: nth($bgcolorlist,$i); &#125;&#125; tips from后的数值，即循环开始的i值不能为0，这是语法规定的。 for循环从i = 1开始，但并不是在i = length($bgcolorlist)时结束，我们本来是需要循环7次，但如果我们写成to length($bgcolorlist)的话，只会循环6次，因此是to length($bgcolorlist)+1。 定义map123456789//将背景颜色以键值对的形式存在map中$bgcolorlist : ( 1: $red, 2: $orange, 3: $yellow, 4: $green, 5: $bluegreen, 6: $blue, 7: $purple); each123456// 使用SASS each语法为每一个li设置background-color@each $i, $color in $bgcolorlist &#123; #main-container ul li:nth-child(#&#123;$i&#125;) &#123; background-color: $color; &#125;&#125;]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+      <tags>
+        <tag>sass</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用VS自带的less编译器]]></title>
+    <url>%2F2017%2F04%2F25%2FVS%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B8%A6%E7%9A%84less%E7%BC%96%E8%AF%91%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[安装Node 1.安装最新版本的Node.JS已默认自带了NPM，无需通过GitHub去安装 2.找到node_modules文件夹 3.启动Node.js的cmd命令窗口 检测版本号123node -vnpm -version 安装less包 通过npm install -d less命令安装LESS包。 为了将less包安装在nodejs的node_modules目录下，可以先进入d:盘，然后使用该命令 1cnpm install -d less 配置环境变量安装完成之后，需将带有lessc 和lessc.cmd文件的.bin文件路径配置到环境变量中 环境变量：计算机&gt;&gt;属性&gt;&gt;高级系统设置&gt;&gt;环境变量&gt;&gt;用户变量&gt;&gt;编辑&gt;&gt;在已有的path后加入刚才的路径，注意需用“;”隔开； 使用1.在node的cmd命令窗口，先cd到放有需要编译的less文件的文件夹Less1cd Less 2.执行以下命令1Less/lessc demo.less &gt; demo.css tips并不是实时监控编译]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+      <tags>
+        <tag>lessc  less VS2013</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文章链接]]></title>
+    <url>%2F2017%2F04%2F24%2Fmargin%E6%97%A0%E6%95%88%2F</url>
+    <content type="text"><![CDATA[margin 0 auto无效原因1.要给居中的元素一个宽度，否者无效。 2.该元素一定不能浮动，否者无效。 3 在HTML中使用标签，需考虑好整体构架，否者全部元素都会居中的。 4.没声明DOCTYPE ①DOCTYPE是document type（文档类型）的简写，在web设计中用来说明你用的XHTML或者HTML是什么版本。要建立符合标准的网页，DOCTYPE声明是必不可少的关键组成部分！ ②看看下面的代码，是不是很熟悉？像这样的，在文档最顶端，所有代码之上的乱七八糟的东西，就是用来声明DOCTYPE的！&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; ③你有三种选择，用来声明DOCTYPE 过渡的(Transitional)：要求非常宽松的DTD，它允许你继续使用HTML4.01的标识(但是要符合xhtml的写法)，完整代码如下：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; 严格的(Strict)：要求严格的DTD，你不能使用任何表现层的标识和属性，例如，完整代码如下：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt; 框架的(Frameset)：专门针对框架页面设计使用的DTD，如果你的页面中包含有框架，需要采用这种DTD，完整代码如下：&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Frameset//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt; ④至于选择哪种。。使用过度的就可以了。。]]></content>
+      <tags>
+        <tag>margin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[函数默认参数设置]]></title>
+    <url>%2F2017%2F04%2F18%2F%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[PHP123456function simue ($a=1,$b=2)&#123; return $a+$b;&#125;echo simue(); //输出3echo simue(10); //输出12echo simue(10,20); //输出30 CSharp1234567891011//MVC Controller.cs public ActionResult NewsList(string code = "newsSubject", int topNum = 2)&#123; var resultData = SubjectContentBO.GetSubjectContentDtByCode(code, topNum); //int topNum = Request.QueryString["topNum"] == null ? 2 : Convert.ToInt32(Request.QueryString["topNum"].ToString()); //强转类型时会报错 ViewBag.dt = resultData; return View();&#125; JavaScript 1.如果写function simue(a=1,b=2){}会提示缺少对象。 2.js函数中有个储存参数的数组arguments ，所有函数获得的参数会被编译器挨个保存到这个数组中。12345678function simue ()&#123; var a = arguments[0] ? arguments[0] : 1; var b = arguments[1] ? arguments[1] : 2; return a+b;&#125;alert( simue() ); //输出3alert( simue(10) ); //输出12alert( simue(10,20) ); //输出30 jsECMA6有默认参数的设置。。。待续]]></content>
+      <tags>
+        <tag>默认参数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CS]]></title>
+    <url>%2F2017%2F03%2F29%2FASP.NET%20MVC%2F</url>
+    <content type="text"><![CDATA[无法直接启动带有类库输出类型解决：右击解决方案，属性，启动项目，当前选定内容 ## @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26 @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr @item.LeaveInfoStartTime.ToString(“yyyy-MMMM-dd”)//中文的操作系统-四月；英文的-April @item.LeaveInfoStartTime.ToLongDateString().ToString();//2017年4月26 $(function () { $(&quot;.pager&quot;).pager({ pageSize: @(Model.PageSize), count:@(Model.TotalCount), currentPageIndex:@(Model.PageIndex), type:&quot;post&quot; }); }); //显示多少个字符后加省略号 (function(){ var obj=$(&quot;tr td p[id=&apos;lenth50&apos;]&quot;); $.each(obj,function(index,o) { var txt = 50;//设置留下的字数 //var o = document.getElementById(&quot;lenth50&quot;);//id html 中设置 var s = o.innerHTML; var p = document.createElement(&quot;span&quot;); var n = document.createElement(&quot;font&quot;); p.innerHTML = s.substring(0,txt); n.innerHTML = s.length &gt; txt ? &quot;...&quot; : &quot;&quot;; o.innerHTML = &quot;&quot;; o.appendChild(p); o.appendChild(n); }); })(); codeif(“1”.Equals(item.DocType))@item.CreateTime.ToShortDateString();//2017/3/23@item.CreateTime.ToString(“MM-dd”) HTML 帮助器123456在上面的代码中，HTML 帮助器用于修改 HTML 输出：@Url.Content() - URL 内容将在此处插入。@Html.ActionLink() - HTML 链接将在此处插入。@Html.TextBox("Title", condition.Title) - 生成&lt;input id="Title" name="Title" type="text" value="韩"&gt;的标签@Html.DropDownListFor(m =&gt; m.RecompID, (IEnumerable&lt;SelectListItem&gt;)ViewBag.ItemList)@Html.TextBoxFor(m =&gt; m.Jurisdiction, new &#123; onclick = "SelectItem(this);", style = "cursor:pointer;", @readonly = "readonly" &#125;) HTML 帮助器123456789101112131415Razor 语法：@Html.ActionLink("About this Website", "About")传参数的：@Url.Action("Edit", new &#123; id = item.ID&#125;)?aa=666//controllers:直接接收string aa就好ASP 语法：&lt;%=Html.ActionLink("About this Website", "About")%&gt;第一个参数是链接文本，第二个参数是控制器操作的名称。上面的 Html.ActionLink() 帮助器，输出以下的 HTML：&lt;a href="/Home/About"&gt;About this Website&lt;/a&gt;@Html.Raw() 方法输出带有html标签的字符串，如：@Html.Raw("&lt;div style='color:red'&gt;输出字符串&lt;/div&gt;")结果：输出字符串 Razor 语法Razor 是一种标记语法，可以让您将基于服务器的代码（Visual Basic 和 C#）嵌入到网页中。 123在上面的代码中，红色标记的代码是使用 Razor 标记的 C#。@ViewBag.Title - 页面标题将在此处插入。@RenderBody() - 页面内容将在此处呈现。 主要的 Razor C# 语法规则 Razor 代码块包含在 @{ … } 中 内联表达式（变量和函数）以 @ 开头 代码语句用分号结束 变量使用 var 关键字声明 字符串用引号括起来 C# 代码区分大小写 C# 文件的扩展名是 .cshtm ContrControllers 文件夹Web 服务器通常会将进入的 URL 请求直接映射到服务器上的磁盘文件。MVC 将 URL 映射到方法。这些方法在类中被称为”控制器”。控制器负责处理进入的请求，处理输入，保存数据，并把响应发送回客户端。 Views 文件夹Views 文件夹存储的是与应用程序显示（用户界面）相关的文件（HTML 文件）。根据所采用的语言内容，这些文件可能扩展名可能是 html、asp、aspx、cshtml 和 vbhtml。Views 文件夹中包含每个控制器对应的一个文件夹。 @modelASP.NET MVC提供了一种利用强类型的方法来将数据或对象传递到视图模板中。这种强类型的方法为你的编码过程提供了很丰富的编辑时的智能输入提示信息与非常好的编译时的检查。@model关键字允许我们在视图模板中直接访问在控制器类中通过使用强类型的“模型”而传递过来的Movie类的列表。 Razor 布局页 在Razor引擎中没有了“母版页”，取而代之的是叫做“布局”的页面（_Layout。cshtml）放在了共享视图文件夹中。模板页：@RenderBody()占位符；局部页面：@RenderPage()；模板页预设区域：@RenderSection(“”) @RenderBody当创建基于_Layout.cshtml布局页面的视图时，视图的内容会和布局页面合并，而新创建视图的内容会通过_Layout.cshtml布局页面的@RenderBody()方法呈现在标签之间。 @RenderBody()只能在_Layout.cshtml中使用一次,而@RenderPage()则可以使用多次! @RenderPage从名称可以猜出来这个方法是要呈现一个页面。比如网页中固定的头部可以单独放在一个共享的视图文件中，然后在布局页面中通过这个方法调用，用法如下： @RenderPage(“~/Views/Shared/_Header.cshtml”) 带参数 @RenderPage(“~/Views/Shared/_Header.cshtml”,new{parm=”my”,parm2=”you”) 调用页面获取参数： //获取 RenderPage() 传递过来的参数@PageData[“param”] @RenderSection布局页面还有节（Section）的概念，也就是说，如果某个视图模板中定义了一个节，那么可以把它单独呈现出来 为了防止因缺少节而出现异常，可以给RenderSection()提供第2个参数： @RenderSection(“head”, false)或@if (IsSectionDefined(“head”)){@RenderSection(“head”, false)}else{ SubMenu Section is not defined!}]]></content>
+      <tags>
+        <tag>c#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[条件注释]]></title>
+    <url>%2F2017%2F03%2F17%2F%E6%9D%A1%E4%BB%B6%E6%B3%A8%E9%87%8A%2F</url>
+    <content type="text"><![CDATA[条件注释 条件注释是一种安全的区分IE浏览器版本的语法，且被认为是取代针对IE css hack的首选办法。 条件注释简介 IE中的条件注释（Conditional comments）对IE的版本和IE非IE有优秀的区分能力，是WEB设计中常用的hack方法。 条件注释只能用于IE5以上。 如果你安装了多个IE，条件注释将会以最高版本的IE为标准。 条件注释的基本结构和HTML的注释(&lt;!– –&gt;)是一样的。因此IE以外的浏览器将会把它们看作是普通的注释而完全忽略它们。 IE将会根据if条件来判断是否如解析普通的页面内容一样解析条件注释里的内容。 条件注释属性 gt : greater than，选择条件版本以上版本，不包含条件版本lt : less than，选择条件版本以下版本，不包含条件版本gte : greater than or equal，选择条件版本以上版本，包含条件版本lte : less than or equal，选择条件版本以下版本，包含条件版本! : 选择条件版本以外所有版本，无论高低 条件注释写法123456789101112131415161718&lt;!--[if IE]&gt;用于 IE &lt;![endif]--&gt;&lt;!--[if IE 6]&gt;用于 IE6 &lt;![endif]--&gt;&lt;!--[if IE 7]&gt;用于 IE7 &lt;![endif]--&gt;&lt;!--[if IE 8]&gt;用于 IE8 &lt;![endif]--&gt;&lt;!--[if IE 9]&gt;用于 IE9 &lt;![endif]--&gt;&lt;!--[if gt IE 6]&gt; 用于 IE6 以上版本&lt;![endif]--&gt;&lt;!--[if lte IE 7]&gt; 用于 IE7或更低版本 &lt;![endif]--&gt;&lt;!--[if gte IE 8]&gt;用于 IE8 或更高版本 &lt;![endif]--&gt;&lt;!--[if lt IE 9]&gt;用于 IE9 以下版本&lt;![endif]--&gt;&lt;!--[if !IE]&gt; --&gt;用于非 IE &lt;!-- &lt;![endif]--&gt; LeeGang12345678//非IE&lt;![if !IE]&gt;Place Content here for Users of all other Browsers.&lt;![endif]&gt;//IE&lt;!--[if IE]&gt;Place Content here for Users of Internet Explorer.&lt;![endif]--&gt;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[SPA]]></title>
+    <url>%2F2017%2F02%2F20%2FSPA1%2F</url>
+    <content type="text"><![CDATA[前言不知你有没有发现，像Github、百度、微博等这些大站，已经不再使用普通的a标签做跳转了。他们大多使用Ajax请求替代了a标签的默认跳转，然后使用HTML5的新API修改了Url，你可以在F12的Network面板里发现这个秘密。 这项技术并没有特别标准的学名，大家都称呼为Pjax，意为PushState + Ajax。这并不完全准确，因为还有Hash + Ajax等方法，但为了方便，我们下文还是统称为Pjax。 为什么要这么做？Pjax是一个优秀的解决方案，你有足够多的理由来使用它： 可以在页面切换间平滑过渡，增加Loading动画。 可以在各个页面间传递数据，不依赖URL。 可以选择性的保留状态，如音乐网站，切换页面时不会停止播放歌曲。 所有的标签都可以用来跳转，不仅仅是a标签。 避免了公共JS的反复执行，如无需在各个页面打开时都判断是否登录过等等。 减少了请求体积，节省流量，加快页面响应速度。 平滑降级到低版本浏览器上，对SEO也不会有影响。原理呢？Pjax的原理十分简单。 拦截a标签的默认跳转动作。 使用Ajax请求新页面。 将返回的Html替换到页面中。 使用HTML5的History API或者Url的Hash修改Url。 HTML5 History API我们来看看HTML5在History里增加了什么：1history.pushState(state, title, url) pushState方法会将当前的url添加到历史记录中，然后修改当前url为新url。请注意，这个方法只会修改地址栏的Url显示，但并不会发出任何请求。我们正是基于此特性来实现Pjax。它有3个参数： state: 可以放任意你想放的数据，它将附加到新url上，作为该页面信息的一个补充。 title: 顾名思义，就是document.title。不过这个参数目前并无作用，浏览器目前会选择忽略它。 url: 新url，也就是你要显示在地址栏上的url。1history.replaceState(state, title, url) replaceState方法与pushState大同小异，区别只在于pushState会将当前url添加到历史记录，之后再修改url，而replaceState只是修改url，不添加历史记录。 window.onpopstate 事件一般来说，每当url变动时，popstate事件都会被触发。但若是调用pushState来修改url，该事件则不会触发，因此，我们可以把它用作浏览器的前进后退事件。该事件有一个参数，就是上文pushState方法的第一个参数state。 一个实例：这里我们以daipig为例，打开daipig，地址栏是http://www.daipig.com 。接下来打开F12 Console，输入：1history.pushState(&#123; a: 1, b: 2 &#125;, null, &quot;http://www.daipig.com/abcdefg&quot;); 可以发现，url已经变成我们输入的url了，但页面并没有刷新，也没有发出任何请求。现在再输入history.state，就可以看到我们刚刚传过来的第一个参数state了。 这时点击后退，url会回到www.daipig.com，同样是没有刷新。只不过后退的时候其实是触发了window.onpopstate事件的。 详细文档可以查阅MDN： https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_… 怎么完整的实现Pjax？Pjax的原理上文已经讲了，并不复杂。我实现了一个比较粗糙的Pjax库，已经能满足不少需求，如果你有兴趣，可以上Github帮忙完善一下代码。地址是：https://github.com/Coffcer/coffce-pjax 。 完整的代码见Github，这里我们只谈需要注意的一些地方。 不支持HTML5 PushState的浏览器怎么办？IE6到IE9是不支持pushState的，要修改Url，只能利用Url的Hash，也即是#号。 你可以随意找个网站试一下，在url后面加上#号和任意内容，页面并不会刷新。此时点击后退也只会回到上一条#号，同样不会刷新。 那么我们只需把pushState(新url)换成localtion.hash = 新url，把onpopstate事件换成onhashchange事件就可以兼容IE了。QQ音乐，网易云音乐等就是使用这种方式]]></content>
+      <tags>
+        <tag>pjax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WebSocket]]></title>
+    <url>%2F2017%2F02%2F16%2Fwebsocket%2F</url>
+    <content type="text"><![CDATA[HTTPHTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。 /* The input control fonts */ input,button,textarea,select,optgroup,option { font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit; } WebSocketWebSocket是基于HTTP的功能追加协议WebSocket最初由html5提出，但现在已经发展为一个独立的协议标准。WebSocket可以分为协议（ Protocol ）和 API 两部分，分别由 IETF 和W3C制定了标准。 先来看看WebSocket协议的建立过程。 为了实现WebSocket通信，首先需要客户端发起一次普通HTTP请求（也就是说，WebSocket的建立是依赖HTTP的）。请求报文可能像这样： GET ws://websocket.example.com/ HTTP/1.1 Host: websocket.example.com Upgrade: websocket Connection: Upgrade Origin: http://example.com Sec-WebSocket-Key:pAloKxsGSHtpIHrJdWLvzQ== Sec-WebSocket-Version:13 其中HTTP头部字段 Upgrade: websocket 和 Connection: Upgrade 很重要，告诉服务器通信协议将发生改变，转为WebSocket协议。支持WebSocket的服务器端在确认以上请求后，应返回状态码为 101 Switching Protocols 的响应： HTTP/1.1 101 Switching Protocols Upgrade: websocket Connection: Upgrade Sec-WebSocket-Accept: nRu4KAPUPjjWYrnzxDVeqOxCvlM= 其中字段 Sec-WebSocket-Accept 是由服务器对前面客户端发送的 Sec-WebSocket-Key 进行确认和加密后的结果，相当于一次验证，以帮助客户端确信对方是真实可用的WebSocket服务器。 验证通过后，这个握手响应就确立了WebSocket连接，此后，服务器端就可以主动发信息给客户端了。此时的状态比较像服务器端和客户端接通了电话，无论是谁有什么信息想告诉对方，开口就好了。 一旦建立了WebSocket连接，此后的通信就不再使用HTTP了，改为使用WebSocket独立的数据帧（这个帧有办法看到，见后文）。 整个过程像这样： !未加载 简单的应用示例应用WebSocket有这样几件事要做： 选用 支持WebSocket的浏览器 。 网页内添加创建WebSocket的代码。 服务器端添加使用WebSocket通信的代码。 服务器端以Node的服务器为例，我们使用 ws 这个组件，这样搭建一个支持WebSocket的服务器端：需要注意的是：先 cnpm install request --save cnpm install dateformat --save cnpm install ws --save 后cd到demo.js所在目录 node demo.js 1234567891011121314151617181920212223242526272829303132333435363738394041var request = require(&quot;request&quot;);var dateFormat = require(&quot;dateformat&quot;);var WebSocket = require(&quot;ws&quot;), WebSocketServer = WebSocket.Server, wss = new WebSocketServer(&#123; port: 8080, path: &quot;/guest&quot; &#125;);// 收到来自客户端的连接请求后，开始给客户端推消息wss.on(&quot;connection&quot;, function(ws) &#123; ws.on(&quot;message&quot;, function(message) &#123; console.log(&quot;received: %s&quot;, message); &#125;); sendGuestInfo(ws);&#125;);function sendGuestInfo(ws) &#123; request(&quot;http://uinames.com/api?region=china&quot;, function(error, response, body) &#123; if (!error &amp;&amp; response.statusCode === 200) &#123; var jsonObject = JSON.parse(body), guest = jsonObject.name + jsonObject.surname, guestInfo = &#123; guest: guest, time: dateFormat(new Date(), &quot;HH:MM:ss&quot;) &#125;; if (ws.readyState === WebSocket.OPEN) &#123; // 发，送 ws.send(JSON.stringify(guestInfo)); // 用随机来“装”得更像不定时推送一些 setTimeout(function() &#123; sendGuestInfo(ws); &#125;, (Math.random() * 5 + 3) * 1000); &#125; &#125; &#125;);&#125; 这个例子使用了姓名生成站点 uinames 的API服务，来生成 {guest: &quot;人名&quot;, time: &quot;15:26:01&quot;} 这样的数据。函数 sendGuestInfo() 会不定时执行，并把包含姓名和时间的信息通过 send() 方法发送给客户端。另外，注意 send() 方法需要以字符串形式来发送json数据。 这就像是服务器自己在做一些事，然后在需要的时候会通知客户端一些信息。 客户端客户端我们使用原生javascript来完成（仅支持WebSocket的浏览器）： 12345678910111213141516171819202122232425if(&quot;WebSocket&quot; in window) &#123; alert(&quot;您的浏览器支持 WebSocket!&quot;); var socket = new WebSocket(&quot;ws://localhost:8080/guest&quot;); socket.onopen = function(openEvent) &#123; console.log(&quot;WebSocket conntected.&quot;); &#125;; socket.onmessage = function(messageEvent) &#123; var data = messageEvent.data, dataObject = JSON.parse(data); console.log(&quot;Guest at &quot; + dataObject.time + &quot;: &quot; + dataObject.guest); &#125;; socket.onerror = function(errorEvent) &#123; console.log(&quot;WebSocket error: &quot;, errorEvent); &#125;; socket.onclose = function(closeEvent) &#123; console.log(&quot;WebSocket closed.&quot;); &#125;;&#125; else &#123; // 浏览器不支持 WebSocket alert(&quot;您的浏览器不支持 WebSocket!&quot;);&#125; WebSocket的URL格式是 ws:// 与 wss:// 。因此，需要注意下URL地址的写法，这也包括注意WebSocket服务器端的路径（如这里的 /guest ）等信息。因为是本地的示例所以这里是 localhost 。 客户端代码的流程很简单：创建 WebSocket 对象，然后指定 onopen 、 onmessage 等事件的回调即可。其中 onmessage 是客户端与服务器端通过WebSocket通信的关键事件，想要在收到服务器通知后做点什么，写在 onmessage 事件的回调函数里就好了。 效果及分析通过 node server （假定服务器端的文件名为 server.js ）启动WebSocket服务器后，用浏览器打开一个引入了前面客户端代码的html（直接文件路径 file:/// 就可以），就可以得到像这样的结果：!未加载]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>websocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小总结]]></title>
+    <url>%2F2017%2F02%2F15%2Ftips%2F</url>
+    <content type="text"><![CDATA[网站缩略图在head标签里写一个link 一般只要在根目录放置一个favicon.ico文件既可，因为浏览器不管你有没有这个文件都会请求这个地址，有的话就显示，没有的话就不显示1&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt; 文字…overflow:hidden;text-overflow:ellipsis;white-space:nowrap; input/textarea里直接取值类似于数据绑定onchange=&quot;$(el)[0].innerText=this.value;&quot; MathMath.round(X)=Math.floor(X+0.5); tap jquery的tap事件是在1.7+版本之上支持 h5input type=range 属性是在IE6、7、8并不支持videoIE9+ 当前， “video元素支持三种视频格式： MP4, WebM, 和 Ogg:” audioIE9+ 目前, audio元素支持三种音频格式文件: MP3, Wav, 和 Ogg: 新的input类型 color date datetime datetime-local email month number range search tel time url week 新的语义标签1&lt;header&gt; &lt;nav&gt; &lt;section&gt; &lt;article&gt; &lt;aside&gt; &lt;figcaption&gt; &lt;figure&gt; &lt;footer&gt; 应用程序缓存（Application Cache）HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。应用程序缓存为应用带来三个优势： 离线浏览 - 用户可在应用离线时使用它们 速度 - 已缓存资源加载得更快 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源 Internet Explorer 10, Firefox, Chrome, Safari 和 Opera 支持应用程序缓存.1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html&gt; 请注意，manifest 文件需要配置正确的 MIME-type，即 &quot;text/cache-manifest&quot;。必须在 web 服务器上进行配置。 Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。 manifest 文件可分为三个部分： CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存 NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存 FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面） 实例 - 完整的 Manifest 文件CACHE MANIFEST # 2012-02-21 v1.0.0 /theme.css /logo.gif /main.js NETWORK: login.php FALLBACK: /html/ /offline.html(注意: 第一个 URI 是资源，第二个是替补。) 关于应用程序缓存的说明 请留心缓存的内容。一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。注意: 浏览器对缓存数据的容量限制可能不太一样（某些浏览器设置的限制是每个站点 5MB）。 移动端click 事件的300ms延迟 假定这么一个场景。用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。]]></content>
+      <tags>
+        <tag>h5</tag>
+        <tag>tap</tag>
+        <tag>click延迟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小总结2]]></title>
+    <url>%2F2017%2F02%2F15%2F%E5%B0%8F%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[随机图片https://unsplash.it/300/300/?random HTML页面上的版权符号©复制“©”，后设置属性1font-family:Arial; h5中页面拨打电话的方式12&lt;a href="tel:18688888888"&gt;拨号&lt;/a&gt; &lt;a href="sms:18688888888"&gt;发短信&lt;/a&gt; ## CSS3 calcIE8+ animition CSS3动画IE10+12345678910111213141516171819202122232425262728293031@keyframes myfirst&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-moz-keyframes myfirst /* Firefox */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-webkit-keyframes myfirst /* Safari 和 Chrome */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-o-keyframes myfirst /* Opera */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;div&#123;animation: myfirst 5s;-moz-animation: myfirst 5s; /* Firefox */-webkit-animation: myfirst 5s; /* Safari 和 Chrome */-o-animation: myfirst 5s; /* Opera */&#125;]]></content>
+      <tags>
+        <tag>©</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[利用hexo和GitHub搭建一个blog]]></title>
+    <url>%2F2017%2F02%2F14%2F%E5%88%A9%E7%94%A8hexo%E5%92%8CGitHub%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAblog%2F</url>
+    <content type="text"><![CDATA[什么是HexoHexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github和Heroku上，引用Hexo作者 @tommy351 的话： 快速、简单且功能强大的 Node.js 博客框架。A fast, simple &amp; powerful blog framework, powered by Node.js. 需要安装的12node npm hexonpm install -g hexo 建议安装2.X版本的，不然在hexo deploy后有兼容问题的报错降级: cnpm install hexo@2.8.3 -g 查看版本hexo version 查看命令帮助hexo help 1、 help ： 查看帮助信息 2、 init [文件夹名] ： 创建一个hexo项目，不指定文件夹名，则在当前目录创建3、 version ： 查看hexo的版本4、 –config config-path ：指定配置文件，代替默认的_config.yml5、 –cwd cwd-path ：自定义当前工作目录5、 –debug ：调试模式，输出所有日志信息6、 –safe ：安全模式，禁用所有的插件和脚本7、 –silent ：无日志输出模式 安装好后，我们就可以使用Hexo创建项目了1234hexo init hexo-democd hexo-demohexo server == hexo s这时端口4000被打开了 在浏览器地址栏中输入localhost:4000/Hexo的默认界面，Hexo2.4+后采用的默认主题是 Landscape Hexo的配置1、 scaffolds ：模板文件夹，新建文章时，Hexo 会根据 scaffold 来建立文件。Hexo 有三种默认布局： post 、 page 和 draft ，它们分别对应不同的路径。新建文件的默认布局是 post ，可以在配置文件中更改布局。用 draft 布局生成的文件会被保存到 source/_drafts 文件夹。2、 source ：资源文件夹是存放用户资源的地方。3、 source/_post ：文件箱。（低版本的hexo还会存在一个 _draft ，这是草稿箱）除 posts 文件夹之外，开头命名为 (下划线)的文件/ 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去4、 themes ：主题 文件夹。Hexo 会根据主题来生成静态页面5、 themes/landscape ：默认的皮肤文件夹6、 _config.yml ：全局的配置文件，每次更改要重启服务。低版本的Hexo还会生成scripts文件夹，里面用于保存扩展Hexo的脚本文件。 修改全局配置时注意：注意缩进，在冒号：后有一个空格主题安装：12&lt;!-- git clone https://github.com/heroicyang/hexo-theme-modernist.git themes/modernist --&gt;git clone https://github.com/iissnan/hexo-theme-next themes/next 安装完成后，打开hexo_config.yml，修改主题为next（注意冒号后边留空格）在themes/next,编辑主题配置文件_config.yml：mist 记得命令行里清除一下缓存hexo clean 基本使用 通过new命令新建一篇文章 hexo new “文章标题”Hexo提供的layout在 scaffolds 目录下，也可以在此目录下自建layout文件。新建的文件则会保存到 source/_post 目录下。在编辑器里编辑文本hexo s 发表的文章会全部显示，如果文章很长，就只要显示文章的摘要就行了。在需要显示摘要的地方添加如下代码即可：i.以上是摘要ii.iii.以下是余下全文 这个文字可以更改，在主题的配置文件( themes/主题文件夹/_config.yml )中，找到 Content ：i.# Contentii.excerpt_link: Read More #可以更改成想要显示的文字iii.fancybox: true 部署在部署之前，需要通过命令把所有的文章都做静态化处理，就是生成对应的html, javascript, css，使得所有的文章都是由静态文件组成的：hexo generate==hexo g在本地目录下，会生成一个public的目录，里面包括了所有静态化的文件。 发布将生成的public里的文件全部上传到GitHub里新建的自己的blog仓库 关于页和标签页和分类页两种实现方式 在source文件夹下新建about文件夹，在about文件夹下新建index.md 直接使用hexo new page 命令,在自动生成的index.md里对应的加上type： “tags/categories”]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[跨域]]></title>
+    <url>%2F2017%2F02%2F14%2F%E8%B7%A8%E5%9F%9F%2F</url>
+    <content type="text"><![CDATA[什么是跨域？只要是协议(http/https),域名,端口有任何一个不同，都被当做是不同的域。 对于端口和协议的不同，只能通过后台来解决。 浏览器的同源策略 其限制之一就是第一种方法中我们说的不能通过ajax的方法去请求不同源中的文档。 它的第二个限制是浏览器中不同域的框架之间是不能进行js的交互操作的。 Access-Control-Allow-Origin html5新增的一项标准功能因此 IE10 以下版本的浏览器是不支持的 只有当目标页面的response中，包含了Access-Control-Allow-Origin这个header，并且它的值里有我们自己的域名时，浏览器才允许我们拿到他页面的数据进行下一步处理。如： Access-Control-Allow-Origin: http://run.jsbin.io 如果他的值设为*，则表示谁都可以用 jsonpJSONP由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数，而数据就是传入回调函数中的JSON数据。 在js中，我们直接用XMLHttpRequest请求不同域上的数据时，是不可以的。但是，在页面上引入不同域上的js脚本文件却是可以的，jsonp正是利用这个特性来实现的。 例如： &lt;script type=&quot;text/javascript&quot;&gt; function dosomething(jsondata){ //处理获得的json数据 } &lt;/script&gt; &lt;script src=&quot;http://example.com/data.php?callback=dosomething&quot;&gt;&lt;/script&gt; 使用window.name来进行跨域window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。 比如：有一个页面a.html,它里面有这样的代码 再看看b.html页面的代码 window.name=&#39;XXX&#39;]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>ajax</tag>
+        <tag>jsonp</tag>
+        <tag>core</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ECMA6]]></title>
+    <url>%2F2017%2F02%2F13%2FECMA6%2F</url>
+    <content type="text"><![CDATA[ECMA简介 ECMA6是javascript语言的下一代标准，已于2015年6月正式发布。其目标是使javascript语言可用于编写复杂的大型应用程序，成为企业级开发语言。 标准的指定者计划，以后每年发布一次标准，使用年份作为版本号。ES6是在2015年发布的，所以又称ECMAScript2015，2016年英国会发布小幅度修订版的ES2016。 Babel转码器Babel是一个广为使用的ES6转码器，可以将ES6代码转换为ES5代码，从而在浏览器或其他环节执行。这意味着，你可以用ES6的方式编写程序，而又不用担心现有环境是否支持。下面是一个例子：123456//转码前input.map(item =&gt; item +1)//转码后&gt;input.map(function(item)&#123; return item+1;&#125;) 上面的原始代码用了箭头函数，这个特性尚未得到广泛的支持，babel将其转换为普通函数后，就能在现有的javascript环境中执行了。 let和const let命令let命令介绍let与varES6新增了let命令，用来声明变量。用法与var类似，用于声明变量。let声明的变量只会在let所在的块级作用域中生效 1234567&#123; let num1 = 10; var num2 = 20; alert(num1); // 10&#125; alert(num1); //undefined num1只会在其所在代码块作用域中生效alert(num2); //20 JavaScript中作用域javascript作用域分为全局作用域、函数作用域，还有块级作用域。函数作用域与块级作用域的区别是什么？ 函数作用域：变量在定义的函数内以及嵌套的子函数内可访问 块级作用域：{}就属于块级作用域,变量在离开定义的块级作用域后马上被收回有了块级作用域后函数自调用不再需要了，自调用解决的问题就是我们需要一个创建一个独立作用域 12345678910111213//自调用函数(function()&#123; var a = 100; alert(a)//100&#125;)alert(a); // error a is not defined//块级作用域&#123; let a = 10; alert(a);// 10&#125;alert(a);// error a is not defined for循环中使用let定义变化值在这个案例中通过let声明变量i，i只会在循环体内生效，循环体外访问报错。 12345for(let i =0;i&lt;10;i++)&#123; console.log(i); // 0 ~ 9&#125;alert(i); // undefined for循环中变量i值问题var方式声明循环变量i： 通过var声明变量i是一个全局变量，所以最后我们调用函数，访问i的时候得到的结果就是i最后的结果10。 1234567var arr =[];for(let i=0;i&lt;10;i++)&#123; arr[i] = function()&#123; alert(i); &#125;&#125;;arr[0]();// 0 使用let声明注意问题不存在变量提升问题通过var方式声明变量的时候存在变量提升问题,通过let方式声明的变量不存在变量提升问题 1234alert(num); //var声明 undefinedalert(name); //报错var num = 10;let name = &apos;Acker&apos; 不允许重复声明let不允许在相同作用域中声明相同变量。 1234&#123; let num = 10; let num = 1000; //报错&#125; let在函数中声明变量不能与形参相同 12345function get(val)&#123; let val = 100; //报错 //Identifier &apos;val&apos; has already been declared //标识符 val 已被占用&#125; 块级作用域的嵌套块级作用域嵌套后在子作用域中可以访问到父级块中的变量。 123456&#123; let num = 100; &#123; console.log(num); //100 &#125;&#125; 块级作用域中声明的变量、在块级作用域结束后销毁12345678&#123; let num = 100; &#123; let num = 200; console.log(num);//200 &#125; console.log(num)//100&#125; const命令let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments 这些是ES6最常用的几个语法，基本上学会它们，我们就可以走遍天下都不怕啦！ ###const命令介绍 const是用来声明一个只读的常量。只要声明后，常量的值就不能改变，否则报错。 123const PI = 3.1415926;console.log(PI)PI = 3; //error Assignment to constant variable 常量不能赋值 注意：conset因为声明后值不能改变，因此声明的常量时必须赋值。 如下:1const num; //Missing initializer in const declaration const作用域const命令也是有作用域的只有在当前声明的作用域中生效。 12345678910111213//函数作用域(function()&#123; const val = 100; alert(val)&#125;)();alert(val);//块级作用域&#123; const port = 80; alert(port)&#125;alert(port) const不存在变量提升const命令声明变量，只能在声明之后访问。不存在变量提升。[ 不会预解析const，因此const只有执行的时候才会在内存中创建该常量 ]12alert(val); //error val is not definedconst val = 100; const不能重复声明只要通过var、let、const声明的变量，不能再次声明，比如： 1234567891011//var constvar num = 100;const num = 200; //error Identifier &apos;num&apos; has already been declared 标识符“num”已被声明//let constlet val = 1;const val = 20; //error Identifier &apos;val&apos; has already been declared 标识符“val”已被声明//var letvar n = 10;let n =300; //error Identifier &apos;val&apos; has already been declared 标识符“n”已被声明 ###const命令与变量引用类型 const声明的变量对于引用类型的数据，只是指向其地址，不会指向数据。因此，const只能保证指向内存地址不变化，不能保证变量数据不变。123456789101112131415//Obectconst foo = &#123; name:&apos;张三&apos;, age:29&#125;foo.name = &quot;lisi&quot;; //修改对象foo的name值 没有报错console.log(foo); //&#123;name: &quot;lisi&quot;, age: 29&#125;alert(foo.name); //lisi//Arrayconst nums = [];nums.push(10);//successnums.push(20);//successconsole.log(nums); // [10,20]nums = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]; //error 保证引用类型数据不变 当我们要保证对象的数据不能修改，我们可以使用Object.freeze()方法来确保对象的数据不变。123const foo = Object.freeze(&#123;name:&apos;zhangsan&apos;,age:29&#125;);foo.name = &apos;lisi&apos;; // 未报错console.log(foo); //修改未生效 &#123;name: &quot;zhangsan&quot;, age: 29&#125; #变量的解构赋值##解构赋值介绍ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构(Destructuring)之前为变量赋值：123var a = 10;var b = 20;var c = 30; ES6允许写法：123var [a,b,c] = [10,20,30];alert(a); //10alert(c); //30 上面的代码表示可以从数组中提取值，按照对应的位置，对变量赋值。 本质上，这种写法属于‘模式匹配’,只要等号两边的模式相同，左边的变量就会被赋予对应的值。 ##数组的解构赋值变量的赋值，ES6允许写成下面这种形式： 1234注/let [a,b,c] = [1,2,3];alert(a);//1alert(b);//2alert(c);//3 可以从数组中提取值，按照变量对应的位置，对变量赋值。 本质上,这种写法属于“模式匹配”,只要等号两边的模式相同，左边的变量就会被赋值对应的值。123let [num,[val,str],blo] = [100,[&apos;acker&apos;,&apos;hello&apos;],true];alert(num);//100alert(val); //acker]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>let</tag>
+        <tag>const</tag>
+        <tag>ECMA6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows安装Ruby环境]]></title>
+    <url>%2F2017%2F02%2F13%2Fruby-sass%2F</url>
+    <content type="text"><![CDATA[下载地址1http://rubyinstaller.org/downloads/ 安装ruby1ruby -v win环境的安装很傻瓜，一路next就行了，不过记得在选择目录的时候，有个add to PATH选项一定要勾上，这样就不用我们手动配置环境变量了。 安装sass12gem install sassgem install compass 第一种 新建一个文件test,并cd到test下 然后我们在test中建一个文件夹用来存放css样式 ， 用命令 1compass create style cd style 然后就可以在style/sass文件下写.scss文件了 生成的.css在style/stylesheets里 第二种调试编译 sass文件有两种格式， 一种是 scss后缀的， 一种是sass后缀的。这个以后再来看。推荐使用的是scss格式的。 在我们的项目中，我们编写 scss文件，通过命令来编译成css ,如下：格式为： sass 原scss文件:目标文件css示例为：sass hello.scss:hi.css 这样就把scss文件编译成了css文件。 编译时控制不同格式的输出 有多种不同的格式：nested (嵌套 这个是默认的，看着不舒服) ；expanded (展开 看着最顺眼) ；compact (紧凑) ；comparessd(压缩 压缩成一行) 我们通过下面的命令来选择输出不同的格式 ：sass hello.scss:hi.css –style expandedsass hello.scss:hi.css –style compactsass hello.scss:hi.css –style compressed webstorm配置setting–tools–file watchers–prgrams(C:\Ruby23-x64\bin\scss.bat)]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[使用命令行和github交互]]></title>
+    <url>%2F2017%2F02%2F13%2F%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%92%8Cgithub%E4%BA%A4%E4%BA%92%2F</url>
+    <content type="text"><![CDATA[全局配置 git config –global user.name “your name”git config –global user.email “your email”git config –global push.default simpleclone一个已有的仓库做开发git clone https://github.com/nate-river/bird.git(你的仓库地址) blog(随意命个名)git –helpgit statusgit add *git statusgit push origin mastergit push 会要求用户名和密码注意要多使用git status 查看状态 和自己目前所在的分支git clone 之后在blog文件里新建一个.ignore文件内容为.idea;后cd到blog，将需要上传的文件放进去后，进行之后的操作步骤管理分支git branch gh-pagesgit checkout gh-pagesgit merge mastergit push –set-upstream origin gh-pages]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>命令行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F02%2F12%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[SSH]]></title>
+    <url>%2F2017%2F02%2F09%2FSSH%2F</url>
+    <content type="text"><![CDATA[SSHSSH 为 Secure Shell 的缩写，由 IETF 的网络工作小组(Network Working Group)所制定;SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。SSH客户端适用于多种平台。几乎所有UNIX平台-包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。 全局配置12git config --global user.email &quot;bu.ru@qq.com&quot;git config --global user.name &quot;bruce-sha&quot; 生成密钥1ssh-keygen -t rsa -C &quot;bu.ru@qq.com&quot; 之后点击三次enter键，输出如下的代码 Add SSH Key 上述命令若执行成功，会在 H:\git\myssh 目录下生成两个文件 id_rsa 和 id_rsa.pub ，最后两步： 用文本编辑器打开 ssh.pub 文件，拷贝其中的内容，将其添加到 Add SSH Key(在GitHub账户setting里)将 id_rsa 和 id_rsa.pub 拷贝至你Git安装目录下的 .ssh 目录，如 H:\PortableGit-1.8.4.ssh 验证：1ssh -T git@github.com]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+  </entry>
 </search>
