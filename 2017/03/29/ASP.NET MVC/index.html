@@ -1,0 +1,1049 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="c#," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="无法直接启动带有类库输出类型解决：右击解决方案，属性，启动项目，当前选定内容 ##     @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26     @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr     @item.LeaveInfoSt">
+<meta name="keywords" content="c#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS">
+<meta property="og:url" content="http://yoursite.com/2017/03/29/ASP.NET MVC/index.html">
+<meta property="og:site_name" content="Lee-Dragon">
+<meta property="og:description" content="无法直接启动带有类库输出类型解决：右击解决方案，属性，启动项目，当前选定内容 ##     @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26     @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr     @item.LeaveInfoSt">
+<meta property="og:updated_time" content="2017-04-26T03:22:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS">
+<meta name="twitter:description" content="无法直接启动带有类库输出类型解决：右击解决方案，属性，启动项目，当前选定内容 ##     @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26     @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr     @item.LeaveInfoSt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/29/ASP.NET MVC/"/>
+
+
+
+
+
+  <title> CS | Lee-Dragon </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lee-Dragon</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">程序媛</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-image"></i> <br />
+            
+            menu.photo
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/ASP.NET MVC/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://p0.qhimg.com/dmfd/400_300_/t01997e01302425d4af.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Lee-Dragon">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Lee-Dragon" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                CS
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T10:00:00+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="Words count in article" }}">
+                      1,175(字)
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="Reading time" }}">
+                      5(分钟)
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="无法直接启动带有类库输出类型"><a href="#无法直接启动带有类库输出类型" class="headerlink" title="无法直接启动带有类库输出类型"></a>无法直接启动带有类库输出类型</h2><p>解决：右击解决方案，属性，启动项目，当前选定内容</p>
+<p>##<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MM-dd”)//2017-04-26<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MMM-dd”)//中文的操作系统-四月；英文的-Apr<br>     @item.LeaveInfoStartTime.ToString(“yyyy-MMMM-dd”)//中文的操作系统-四月；英文的-April<br>     @item.LeaveInfoStartTime.ToLongDateString().ToString();//2017年4月26</p>
+<pre><code>$(function () {
+        $(&quot;.pager&quot;).pager({
+            pageSize: @(Model.PageSize),
+            count:@(Model.TotalCount),
+            currentPageIndex:@(Model.PageIndex),
+            type:&quot;post&quot;
+        });
+    });
+
+
+     //显示多少个字符后加省略号
+(function(){
+    var obj=$(&quot;tr td p[id=&apos;lenth50&apos;]&quot;);
+    $.each(obj,function(index,o) {
+        var txt = 50;//设置留下的字数
+        //var o = document.getElementById(&quot;lenth50&quot;);//id   html 中设置
+        var s = o.innerHTML;
+        var p = document.createElement(&quot;span&quot;);
+        var n = document.createElement(&quot;font&quot;);
+        p.innerHTML = s.substring(0,txt);
+        n.innerHTML = s.length &gt; txt ? &quot;...&quot; : &quot;&quot;;
+        o.innerHTML = &quot;&quot;;
+        o.appendChild(p);
+        o.appendChild(n);
+    });
+
+
+})();
+</code></pre><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><p>if(“1”.Equals(item.DocType))<br>@item.CreateTime.ToShortDateString();//2017/3/23<br>@item.CreateTime.ToString(“MM-dd”) </p>
+<h2 id="HTML-帮助器"><a href="#HTML-帮助器" class="headerlink" title="HTML 帮助器"></a>HTML 帮助器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">在上面的代码中，HTML 帮助器用于修改 HTML 输出：</div><div class="line">@Url.Content() - URL 内容将在此处插入。</div><div class="line">@Html.ActionLink() - HTML 链接将在此处插入。</div><div class="line">@Html.TextBox(<span class="string">"Title"</span>, condition.Title) - 生成&lt;input id=<span class="string">"Title"</span> name=<span class="string">"Title"</span> <span class="built_in">type</span>=<span class="string">"text"</span> value=<span class="string">"韩"</span>&gt;的标签</div><div class="line">@Html.DropDownListFor(m =&gt; m.RecompID, (IEnumerable&lt;SelectListItem&gt;)ViewBag.ItemList)</div><div class="line">@Html.TextBoxFor(m =&gt; m.Jurisdiction, new &#123; onclick = <span class="string">"SelectItem(this);"</span>, style = <span class="string">"cursor:pointer;"</span>, @<span class="built_in">readonly</span> = <span class="string">"readonly"</span> &#125;)</div></pre></td></tr></table></figure>
+<h3 id="HTML-帮助器-1"><a href="#HTML-帮助器-1" class="headerlink" title="HTML 帮助器"></a>HTML 帮助器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">Razor 语法：</div><div class="line">@Html.ActionLink(<span class="string">"About this Website"</span>, <span class="string">"About"</span>)</div><div class="line">传参数的：</div><div class="line">@Url.Action(<span class="string">"Edit"</span>, new &#123; id = item.ID&#125;)?aa=666//controllers:直接接收string aa就好</div><div class="line">ASP 语法：</div><div class="line">&lt;%=Html.ActionLink(<span class="string">"About this Website"</span>, <span class="string">"About"</span>)%&gt;</div><div class="line">第一个参数是链接文本，第二个参数是控制器操作的名称。</div><div class="line">上面的 Html.ActionLink() 帮助器，输出以下的 HTML：</div><div class="line">&lt;a href=<span class="string">"/Home/About"</span>&gt;About this Website&lt;/a&gt;</div><div class="line"></div><div class="line">@Html.Raw() 方法输出带有html标签的字符串，如：</div><div class="line">@Html.Raw(<span class="string">"&lt;div style='color:red'&gt;输出字符串&lt;/div&gt;"</span>)</div><div class="line">结果：输出字符串</div></pre></td></tr></table></figure>
+<h2 id="Razor-语法"><a href="#Razor-语法" class="headerlink" title="Razor 语法"></a>Razor 语法</h2><p>Razor 是一种标记语法，可以让您将基于服务器的代码（Visual Basic 和 C#）嵌入到网页中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在上面的代码中，红色标记的代码是使用 Razor 标记的 C<span class="comment">#。</span></div><div class="line">@ViewBag.Title - 页面标题将在此处插入。</div><div class="line">@RenderBody() - 页面内容将在此处呈现。</div></pre></td></tr></table></figure>
+<h3 id="主要的-Razor-C-语法规则"><a href="#主要的-Razor-C-语法规则" class="headerlink" title="主要的 Razor C# 语法规则"></a>主要的 Razor C# 语法规则</h3><ul>
+<li>Razor 代码块包含在 @{ … } 中</li>
+<li>内联表达式（变量和函数）以 @ 开头</li>
+<li>代码语句用分号结束</li>
+<li>变量使用 var 关键字声明</li>
+<li>字符串用引号括起来</li>
+<li>C# 代码区分大小写</li>
+<li>C# 文件的扩展名是 .cshtm</li>
+</ul>
+<h2 id="ContrControllers-文件夹"><a href="#ContrControllers-文件夹" class="headerlink" title="ContrControllers 文件夹"></a>ContrControllers 文件夹</h2><p>Web 服务器通常会将进入的 URL 请求直接映射到服务器上的磁盘文件。<br>MVC 将 URL 映射到方法。这些方法在类中被称为”控制器”。<br>控制器负责处理进入的请求，处理输入，保存数据，并把响应发送回客户端。</p>
+<h2 id="Views-文件夹"><a href="#Views-文件夹" class="headerlink" title="Views 文件夹"></a>Views 文件夹</h2><p>Views 文件夹存储的是与应用程序显示（用户界面）相关的文件（HTML 文件）。根据所采用的语言内容，这些文件可能扩展名可能是 html、asp、aspx、cshtml 和 vbhtml。<br>Views 文件夹中包含每个控制器对应的一个文件夹。</p>
+<h2 id="model"><a href="#model" class="headerlink" title="@model"></a>@model</h2><p>ASP.NET MVC提供了一种利用强类型的方法来将数据或对象传递到视图模板中。这种强类型的方法为你的编码过程提供了很丰富的编辑时的智能输入提示信息与非常好的编译时的检查。<br>@model关键字允许我们在视图模板中直接访问在控制器类中通过使用强类型的“模型”而传递过来的Movie类的列表。</p>
+<h2 id="Razor-布局页"><a href="#Razor-布局页" class="headerlink" title="Razor 布局页"></a>Razor 布局页</h2><blockquote>
+<p>在Razor引擎中没有了“母版页”，取而代之的是叫做“布局”的页面（_Layout。cshtml）放在了共享视图文件夹中。模板页：@RenderBody()占位符；局部页面：@RenderPage()；模板页预设区域：@RenderSection(“”)</p>
+</blockquote>
+<h3 id="RenderBody"><a href="#RenderBody" class="headerlink" title="@RenderBody"></a>@RenderBody</h3><p>当创建基于_Layout.cshtml布局页面的视图时，视图的内容会和布局页面合并，而新创建视图的内容会通过_Layout.cshtml布局页面的@RenderBody()方法呈现在标签之间。</p>
+<p>@RenderBody()只能在_Layout.cshtml中使用一次,而@RenderPage()则可以使用多次!</p>
+<h3 id="RenderPage"><a href="#RenderPage" class="headerlink" title="@RenderPage"></a>@RenderPage</h3><p>从名称可以猜出来这个方法是要呈现一个页面。比如网页中固定的头部可以单独放在一个共享的视图文件中，然后在布局页面中通过这个方法调用，用法如下：</p>
+<p>@RenderPage(“~/Views/Shared/_Header.cshtml”)</p>
+<p>带参数</p>
+<p>@RenderPage(“~/Views/Shared/_Header.cshtml”,new{parm=”my”,parm2=”you”)</p>
+<p>调用页面获取参数：</p>
+<p>//获取 RenderPage() 传递过来的参数<br>@PageData[“param”]</p>
+<h3 id="RenderSection"><a href="#RenderSection" class="headerlink" title="@RenderSection"></a>@RenderSection</h3><p>布局页面还有节（Section）的概念，也就是说，如果某个视图模板中定义了一个节，那么可以把它单独呈现出来</p>
+<p>为了防止因缺少节而出现异常，可以给RenderSection()提供第2个参数：</p>
+<p>@RenderSection(“head”, false)<br>或<br>@if (IsSectionDefined(“head”))<br>{<br>@RenderSection(“head”, false)<br>}<br>else<br>{</p>
+<p></p><p>SubMenu Section is not defined!</p><br>}<p></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wx.png" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.png" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c#</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/条件注释/" rel="next" title="条件注释">
+                <i class="fa fa-chevron-left"></i> 条件注释
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/18/函数默认参数设置/" rel="prev" title="函数默认参数设置">
+                函数默认参数设置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://p0.qhimg.com/dmfd/400_300_/t01997e01302425d4af.jpg"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/github" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+        <div id="music163player"> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=436699237&auto=0&height=66"> </iframe> </div>
+        
+
+		
+        
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无法直接启动带有类库输出类型"><span class="nav-number">1.</span> <span class="nav-text">无法直接启动带有类库输出类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number">1.1.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-帮助器"><span class="nav-number">2.</span> <span class="nav-text">HTML 帮助器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-帮助器-1"><span class="nav-number">2.1.</span> <span class="nav-text">HTML 帮助器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Razor-语法"><span class="nav-number">3.</span> <span class="nav-text">Razor 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要的-Razor-C-语法规则"><span class="nav-number">3.1.</span> <span class="nav-text">主要的 Razor C# 语法规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ContrControllers-文件夹"><span class="nav-number">4.</span> <span class="nav-text">ContrControllers 文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Views-文件夹"><span class="nav-number">5.</span> <span class="nav-text">Views 文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">6.</span> <span class="nav-text">@model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Razor-布局页"><span class="nav-number">7.</span> <span class="nav-text">Razor 布局页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RenderBody"><span class="nav-number">7.1.</span> <span class="nav-text">@RenderBody</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RenderPage"><span class="nav-number">7.2.</span> <span class="nav-text">@RenderPage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RenderSection"><span class="nav-number">7.3.</span> <span class="nav-text">@RenderSection</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
