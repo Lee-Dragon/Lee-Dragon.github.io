@@ -141,14 +141,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[小总结2]]></title>
-    <url>%2F2017%2F02%2F15%2F%E5%B0%8F%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[随机图片https://unsplash.it/300/300/?random HTML页面上的版权符号©复制“©”，后设置属性1font-family:Arial; h5中页面拨打电话的方式12&lt;a href="tel:18688888888"&gt;拨号&lt;/a&gt; &lt;a href="sms:18688888888"&gt;发短信&lt;/a&gt; ## CSS3 calcIE8+ animition CSS3动画IE10+12345678910111213141516171819202122232425262728293031@keyframes myfirst&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-moz-keyframes myfirst /* Firefox */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-webkit-keyframes myfirst /* Safari 和 Chrome */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-o-keyframes myfirst /* Opera */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;div&#123;animation: myfirst 5s;-moz-animation: myfirst 5s; /* Firefox */-webkit-animation: myfirst 5s; /* Safari 和 Chrome */-o-animation: myfirst 5s; /* Opera */&#125;]]></content>
-      <tags>
-        <tag>©</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[小总结]]></title>
     <url>%2F2017%2F02%2F15%2Ftips%2F</url>
     <content type="text"><![CDATA[网站缩略图在head标签里写一个link 一般只要在根目录放置一个favicon.ico文件既可，因为浏览器不管你有没有这个文件都会请求这个地址，有的话就显示，没有的话就不显示1&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt; 文字…overflow:hidden;text-overflow:ellipsis;white-space:nowrap; input/textarea里直接取值类似于数据绑定onchange=&quot;$(el)[0].innerText=this.value;&quot; MathMath.round(X)=Math.floor(X+0.5); tap jquery的tap事件是在1.7+版本之上支持 h5input type=range 属性是在IE6、7、8并不支持videoIE9+ 当前， “video元素支持三种视频格式： MP4, WebM, 和 Ogg:” audioIE9+ 目前, audio元素支持三种音频格式文件: MP3, Wav, 和 Ogg: 新的input类型 color date datetime datetime-local email month number range search tel time url week 新的语义标签1&lt;header&gt; &lt;nav&gt; &lt;section&gt; &lt;article&gt; &lt;aside&gt; &lt;figcaption&gt; &lt;figure&gt; &lt;footer&gt; 应用程序缓存（Application Cache）HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。应用程序缓存为应用带来三个优势： 离线浏览 - 用户可在应用离线时使用它们 速度 - 已缓存资源加载得更快 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源 Internet Explorer 10, Firefox, Chrome, Safari 和 Opera 支持应用程序缓存.1234&lt;!DOCTYPE HTML&gt;&lt;html manifest=&quot;demo.appcache&quot;&gt;...&lt;/html&gt; 请注意，manifest 文件需要配置正确的 MIME-type，即 &quot;text/cache-manifest&quot;。必须在 web 服务器上进行配置。 Manifest 文件manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。 manifest 文件可分为三个部分： CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存 NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存 FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面） 实例 - 完整的 Manifest 文件CACHE MANIFEST # 2012-02-21 v1.0.0 /theme.css /logo.gif /main.js NETWORK: login.php FALLBACK: /html/ /offline.html(注意: 第一个 URI 是资源，第二个是替补。) 关于应用程序缓存的说明 请留心缓存的内容。一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。注意: 浏览器对缓存数据的容量限制可能不太一样（某些浏览器设置的限制是每个站点 5MB）。 移动端click 事件的300ms延迟 假定这么一个场景。用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。]]></content>
@@ -156,6 +148,14 @@
         <tag>h5</tag>
         <tag>tap</tag>
         <tag>click延迟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小总结2]]></title>
+    <url>%2F2017%2F02%2F15%2F%E5%B0%8F%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[随机图片https://unsplash.it/300/300/?random HTML页面上的版权符号©复制“©”，后设置属性1font-family:Arial; h5中页面拨打电话的方式12&lt;a href="tel:18688888888"&gt;拨号&lt;/a&gt; &lt;a href="sms:18688888888"&gt;发短信&lt;/a&gt; ## CSS3 calcIE8+ animition CSS3动画IE10+12345678910111213141516171819202122232425262728293031@keyframes myfirst&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-moz-keyframes myfirst /* Firefox */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-webkit-keyframes myfirst /* Safari 和 Chrome */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;@-o-keyframes myfirst /* Opera */&#123;from &#123;background: red;&#125;to &#123;background: yellow;&#125;&#125;div&#123;animation: myfirst 5s;-moz-animation: myfirst 5s; /* Firefox */-webkit-animation: myfirst 5s; /* Safari 和 Chrome */-o-animation: myfirst 5s; /* Opera */&#125;]]></content>
+      <tags>
+        <tag>©</tag>
       </tags>
   </entry>
   <entry>
