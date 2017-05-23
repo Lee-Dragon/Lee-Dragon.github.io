@@ -1,0 +1,893 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http,websocket," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="HTTPHTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。    /* The input control fonts */ input,button,textarea,select,optgroup,option {     font-family">
+<meta name="keywords" content="http,websocket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebSocket">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/websocket/index.html">
+<meta property="og:site_name" content="Lee-Dragon">
+<meta property="og:description" content="HTTPHTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。    /* The input control fonts */ input,button,textarea,select,optgroup,option {     font-family">
+<meta property="og:updated_time" content="2017-02-16T07:46:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebSocket">
+<meta name="twitter:description" content="HTTPHTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。    /* The input control fonts */ input,button,textarea,select,optgroup,option {     font-family">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/16/websocket/"/>
+
+
+
+
+
+  <title> WebSocket | Lee-Dragon </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lee-Dragon</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">程序媛</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/websocket/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://p0.qhimg.com/dmfd/400_300_/t01997e01302425d4af.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Lee-Dragon">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Lee-Dragon" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                WebSocket
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T13:00:00+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/front-end/" itemprop="url" rel="index">
+                    <span itemprop="name">front-end</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/16/websocket/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/websocket/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>HTTP协议限制了一次通信总是由客户端发起请求，再由服务器端来返回响应。<br>因此，如果让服务器端也可以主动发送信息到客户端，就可以很大程度改进这些不足。WebSocket就是一个实现这种双向通信的新协议。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27836172&auto=0&height=66"></iframe><br><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=27836172&auto=0&height=32"></iframe>
+
+
+<pre><code>/* The input control fonts */
+input,button,textarea,select,optgroup,option {
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+}
+</code></pre><h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><h2 id="WebSocket是基于HTTP的功能追加协议"><a href="#WebSocket是基于HTTP的功能追加协议" class="headerlink" title="WebSocket是基于HTTP的功能追加协议"></a>WebSocket是基于HTTP的功能追加协议</h2><p>WebSocket最初由html5提出，但现在已经发展为一个独立的协议标准。WebSocket可以分为协议（ Protocol ）和 API 两部分，分别由 IETF 和W3C制定了标准。</p>
+<p>先来看看WebSocket协议的建立过程。</p>
+<p>为了实现WebSocket通信，首先需要客户端发起一次普通HTTP请求（也就是说，WebSocket的建立是依赖HTTP的）。请求报文可能像这样：</p>
+<pre><code>GET ws://websocket.example.com/ HTTP/1.1
+Host: websocket.example.com
+Upgrade: websocket
+Connection: Upgrade
+Origin: http://example.com
+Sec-WebSocket-Key:pAloKxsGSHtpIHrJdWLvzQ==
+Sec-WebSocket-Version:13
+</code></pre><p>其中HTTP头部字段 Upgrade: websocket 和 Connection: Upgrade 很重要，告诉服务器通信协议将发生改变，转为WebSocket协议。支持WebSocket的服务器端在确认以上请求后，应返回状态码为 101 Switching Protocols 的响应：</p>
+<pre><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: nRu4KAPUPjjWYrnzxDVeqOxCvlM=
+</code></pre><p>其中字段 Sec-WebSocket-Accept 是由服务器对前面客户端发送的 Sec-WebSocket-Key 进行确认和加密后的结果，相当于一次验证，以帮助客户端确信对方是真实可用的WebSocket服务器。</p>
+<p>验证通过后，这个握手响应就确立了WebSocket连接，此后，服务器端就可以主动发信息给客户端了。此时的状态比较像服务器端和客户端接通了电话，无论是谁有什么信息想告诉对方，开口就好了。</p>
+<p>一旦建立了WebSocket连接，此后的通信就不再使用HTTP了，改为使用WebSocket独立的数据帧（这个帧有办法看到，见后文）。</p>
+<p>整个过程像这样：</p>
+<p><a href="https://lee-dragon.github.io/images/websocket.png" title="websocket原理图" target="_blank" rel="external">!未加载</a></p>
+<h1 id="简单的应用示例"><a href="#简单的应用示例" class="headerlink" title="简单的应用示例"></a>简单的应用示例</h1><h2 id="应用WebSocket有这样几件事要做："><a href="#应用WebSocket有这样几件事要做：" class="headerlink" title="应用WebSocket有这样几件事要做："></a>应用WebSocket有这样几件事要做：</h2><ol>
+<li>选用 支持WebSocket的浏览器 。</li>
+<li>网页内添加创建WebSocket的代码。</li>
+<li>服务器端添加使用WebSocket通信的代码。</li>
+</ol>
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>以Node的服务器为例，我们使用 ws 这个组件，这样搭建一个支持WebSocket的服务器端：<br>需要注意的是：先</p>
+<pre><code>cnpm install request --save
+cnpm install dateformat --save
+cnpm install ws --save
+</code></pre><p>后cd到demo.js所在目录</p>
+<p><code>node demo.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var request = require(&quot;request&quot;);</div><div class="line">var dateFormat = require(&quot;dateformat&quot;);</div><div class="line">var WebSocket = require(&quot;ws&quot;),</div><div class="line">    WebSocketServer = WebSocket.Server,</div><div class="line">    wss = new WebSocketServer(&#123;</div><div class="line">        port: 8080,</div><div class="line">        path: &quot;/guest&quot;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">// 收到来自客户端的连接请求后，开始给客户端推消息</div><div class="line">wss.on(&quot;connection&quot;, function(ws) &#123;</div><div class="line">    ws.on(&quot;message&quot;, function(message) &#123;</div><div class="line">        console.log(&quot;received: %s&quot;, message);</div><div class="line">    &#125;);</div><div class="line">    sendGuestInfo(ws);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">function sendGuestInfo(ws) &#123;</div><div class="line">    request(&quot;http://uinames.com/api?region=china&quot;,</div><div class="line">        function(error, response, body) &#123;</div><div class="line">            if (!error &amp;&amp; response.statusCode === 200) &#123;</div><div class="line">                var jsonObject = JSON.parse(body),</div><div class="line">                    guest = jsonObject.name + jsonObject.surname,</div><div class="line">                    guestInfo = &#123;</div><div class="line">                        guest: guest,</div><div class="line">                        time: dateFormat(new Date(), &quot;HH:MM:ss&quot;)</div><div class="line">                    &#125;;</div><div class="line"></div><div class="line">                if (ws.readyState === WebSocket.OPEN) &#123;</div><div class="line"></div><div class="line">                    // 发，送</div><div class="line">                    ws.send(JSON.stringify(guestInfo));</div><div class="line"></div><div class="line">                    // 用随机来“装”得更像不定时推送一些</div><div class="line">                    setTimeout(function() &#123;</div><div class="line">                        sendGuestInfo(ws);</div><div class="line">                    &#125;, (Math.random() * 5 + 3) * 1000);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>这个例子使用了姓名生成站点 uinames 的API服务，来生成 {guest: &quot;人名&quot;, time: &quot;15:26:01&quot;} 这样的数据。函数 sendGuestInfo() 会不定时执行，并把包含姓名和时间的信息通过 send() 方法发送给客户端。另外，注意 send() 方法需要以字符串形式来发送json数据。
+</code></pre><p>这就像是服务器自己在做一些事，然后在需要的时候会通知客户端一些信息。</p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>客户端我们使用原生javascript来完成（仅支持WebSocket的浏览器）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">if(&quot;WebSocket&quot; in window) &#123;</div><div class="line">	alert(&quot;您的浏览器支持 WebSocket!&quot;);</div><div class="line">	var socket = new WebSocket(&quot;ws://localhost:8080/guest&quot;);</div><div class="line"></div><div class="line">	socket.onopen = function(openEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket conntected.&quot;);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onmessage = function(messageEvent) &#123;</div><div class="line">	    var data = messageEvent.data,</div><div class="line">	        dataObject = JSON.parse(data);</div><div class="line">	    console.log(&quot;Guest at &quot; + dataObject.time + &quot;: &quot; + dataObject.guest);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onerror = function(errorEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket error: &quot;, errorEvent);</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	socket.onclose = function(closeEvent) &#123;</div><div class="line">	    console.log(&quot;WebSocket closed.&quot;);</div><div class="line">	&#125;;</div><div class="line">&#125; else &#123;</div><div class="line">	// 浏览器不支持 WebSocket</div><div class="line">	alert(&quot;您的浏览器不支持 WebSocket!&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>WebSocket的URL格式是 ws:// 与 wss:// 。因此，需要注意下URL地址的写法，这也包括注意WebSocket服务器端的路径（如这里的 /guest ）等信息。因为是本地的示例所以这里是 localhost 。</p>
+<p>客户端代码的流程很简单：创建 WebSocket 对象，然后指定 onopen 、 onmessage 等事件的回调即可。其中 onmessage 是客户端与服务器端通过WebSocket通信的关键事件，想要在收到服务器通知后做点什么，写在 onmessage 事件的回调函数里就好了。</p>
+<h2 id="效果及分析"><a href="#效果及分析" class="headerlink" title="效果及分析"></a>效果及分析</h2><p>通过 node server （假定服务器端的文件名为 server.js ）启动WebSocket服务器后，用浏览器打开一个引入了前面客户端代码的html（直接文件路径 file:/// 就可以），就可以得到像这样的结果：<br><a href="https://lee-dragon.github.io/images/webresult.gif" title="效果图" target="_blank" rel="external">!未加载</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/path/to/wechat-reward-image.jpg" alt="Lee WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/path/to/alipay-reward-image" alt="Lee Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag"># http</a>
+          
+            <a href="/tags/websocket/" rel="tag"># websocket</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/15/tips/" rel="next" title="小总结">
+                <i class="fa fa-chevron-left"></i> 小总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/20/SPA1/" rel="prev" title="SPA">
+                SPA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/02/16/websocket/"
+     data-title="WebSocket"
+     data-content=""
+     data-url="http://yoursite.com/2017/02/16/websocket/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/16/websocket/"
+           data-title="WebSocket" data-url="http://yoursite.com/2017/02/16/websocket/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://p0.qhimg.com/dmfd/400_300_/t01997e01302425d4af.jpg"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="Link" target="_blank" title="LinkLabel">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  LinkLabel
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/github" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://baidu.com" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=86 height=86 src="http://music.163.com/outchain/player?type=2&id=1286452&auto=0&height=66"></iframe>
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket"><span class="nav-number">2.</span> <span class="nav-text">WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket是基于HTTP的功能追加协议"><span class="nav-number">2.1.</span> <span class="nav-text">WebSocket是基于HTTP的功能追加协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的应用示例"><span class="nav-number">3.</span> <span class="nav-text">简单的应用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用WebSocket有这样几件事要做："><span class="nav-number">3.1.</span> <span class="nav-text">应用WebSocket有这样几件事要做：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端"><span class="nav-number">3.2.</span> <span class="nav-text">服务器端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">3.3.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果及分析"><span class="nav-number">3.4.</span> <span class="nav-text">效果及分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"true"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
