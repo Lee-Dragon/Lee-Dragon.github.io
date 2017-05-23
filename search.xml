@@ -944,15 +944,15 @@ function dosomething(jsondata){
     </entry>
     
     <entry>
-      <title><![CDATA[photo]]></title>
-      <url>/photo/index.html</url>
-      <content type="html"><![CDATA[<h2 id="photo"><a href="#photo" class="headerlink" title="photo"></a>photo</h2>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[categories]]></title>
       <url>/categories/index.html</url>
       <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[photo]]></title>
+      <url>/photo/index.html</url>
+      <content type="html"><![CDATA[<h2 id="photo"><a href="#photo" class="headerlink" title="photo"></a>photo</h2>]]></content>
     </entry>
     
     <entry>
