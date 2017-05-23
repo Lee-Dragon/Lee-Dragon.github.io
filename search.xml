@@ -908,4 +908,58 @@ function dosomething(jsondata){
     
   
   
+    
+    <entry>
+      <title><![CDATA[404]]></title>
+      <url>/404.html</url>
+      <content type="html"><![CDATA[<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8;">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="robots" content="all">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css">
+</head>
+<body>
+  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
+  </script>
+  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
+  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
+</body>
+</html>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h3 id="李老四，前端工程师-Just-Solo"><a href="#李老四，前端工程师-Just-Solo" class="headerlink" title="李老四，前端工程师  Just Solo"></a>李老四，前端工程师  Just Solo</h3><h2 id="行走轨迹"><a href="#行走轨迹" class="headerlink" title="行走轨迹"></a>行走轨迹</h2><ul class="highlights night"><li>2014-6-18~2015-6-20&nbsp;&nbsp;&nbsp;&nbsp;   北漂</li><li>2015-6-30~2016-4-18&nbsp;&nbsp;&nbsp;&nbsp;   太原</li><li>2016-12-12~至今&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   上海</li></ul>
+
+<h2 id="自我简介"><a href="#自我简介" class="headerlink" title="自我简介"></a>自我简介</h2><ul class="highlights night"><li>我，来自山西忻州</li><li>的一个小村庄</li><li>毕业后终于从事了自己喜欢的行业</li><li>成为了一名苦逼的码农</li><li></li><br><li>虽然确实很辛苦</li><li>不过我还是很开心的</li><li>因为这毕竟是我自己所喜欢且选择的</li><li>记得之前听过 的一句话</li><li>梦想总是要有的</li><li>万一见鬼了呢！对吧</li></ul>
+
+
+<h2 id="札记"><a href="#札记" class="headerlink" title="札记"></a>札记</h2><p>2017-02-16    &emsp;&emsp;&emsp;折腾了多天之后，blog终于可以告一段落了</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[photo]]></title>
+      <url>/photo/index.html</url>
+      <content type="html"><![CDATA[<h2 id="photo"><a href="#photo" class="headerlink" title="photo"></a>photo</h2>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Tagcloud]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
 </search>
